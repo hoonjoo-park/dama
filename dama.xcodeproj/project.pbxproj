@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		CB5CA38D2996CB9600487D47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5CA38C2996CB9600487D47 /* AppDelegate.swift */; };
 		CB5CA38F2996CB9600487D47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5CA38E2996CB9600487D47 /* SceneDelegate.swift */; };
-		CB5CA3912996CB9600487D47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5CA3902996CB9600487D47 /* ViewController.swift */; };
-		CB5CA3942996CB9600487D47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5CA3922996CB9600487D47 /* Main.storyboard */; };
+		CB5CA3912996CB9600487D47 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5CA3902996CB9600487D47 /* MenuVC.swift */; };
 		CB5CA3962996CB9800487D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB5CA3952996CB9800487D47 /* Assets.xcassets */; };
 		CB5CA3992996CB9800487D47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5CA3972996CB9800487D47 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -19,8 +18,7 @@
 		CB5CA3892996CB9600487D47 /* dama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dama.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB5CA38C2996CB9600487D47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB5CA38E2996CB9600487D47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CB5CA3902996CB9600487D47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CB5CA3932996CB9600487D47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CB5CA3902996CB9600487D47 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		CB5CA3952996CB9800487D47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB5CA3982996CB9800487D47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB5CA39A2996CB9800487D47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,15 +54,30 @@
 		CB5CA38B2996CB9600487D47 /* dama */ = {
 			isa = PBXGroup;
 			children = (
-				CB5CA38C2996CB9600487D47 /* AppDelegate.swift */,
-				CB5CA38E2996CB9600487D47 /* SceneDelegate.swift */,
-				CB5CA3902996CB9600487D47 /* ViewController.swift */,
-				CB5CA3922996CB9600487D47 /* Main.storyboard */,
+				CB5CA3A12996CC7300487D47 /* App */,
+				CB5CA3A02996CC4500487D47 /* ViewControllers */,
 				CB5CA3952996CB9800487D47 /* Assets.xcassets */,
 				CB5CA3972996CB9800487D47 /* LaunchScreen.storyboard */,
 				CB5CA39A2996CB9800487D47 /* Info.plist */,
 			);
 			path = dama;
+			sourceTree = "<group>";
+		};
+		CB5CA3A02996CC4500487D47 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CB5CA3902996CB9600487D47 /* MenuVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CB5CA3A12996CC7300487D47 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				CB5CA38C2996CB9600487D47 /* AppDelegate.swift */,
+				CB5CA38E2996CB9600487D47 /* SceneDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +140,6 @@
 			files = (
 				CB5CA3992996CB9800487D47 /* LaunchScreen.storyboard in Resources */,
 				CB5CA3962996CB9800487D47 /* Assets.xcassets in Resources */,
-				CB5CA3942996CB9600487D47 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB5CA3912996CB9600487D47 /* ViewController.swift in Sources */,
+				CB5CA3912996CB9600487D47 /* MenuVC.swift in Sources */,
 				CB5CA38D2996CB9600487D47 /* AppDelegate.swift in Sources */,
 				CB5CA38F2996CB9600487D47 /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +159,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CB5CA3922996CB9600487D47 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CB5CA3932996CB9600487D47 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CB5CA3972996CB9800487D47 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -290,11 +294,12 @@
 				DEVELOPMENT_TEAM = TQX48B3375;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = dama/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "담아";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,9 +307,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = hoonjoo.dama;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -318,11 +326,12 @@
 				DEVELOPMENT_TEAM = TQX48B3375;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = dama/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "담아";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +339,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = hoonjoo.dama;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
