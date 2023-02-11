@@ -12,6 +12,11 @@
 		CB5CA3912996CB9600487D47 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5CA3902996CB9600487D47 /* MenuVC.swift */; };
 		CB5CA3962996CB9800487D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB5CA3952996CB9800487D47 /* Assets.xcassets */; };
 		CB5CA3992996CB9800487D47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5CA3972996CB9800487D47 /* LaunchScreen.storyboard */; };
+		CBF396272998082900915229 /* OrderResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF396262998082900915229 /* OrderResultVC.swift */; };
+		CBF3962A299808FC00915229 /* DamaLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF39629299808FC00915229 /* DamaLabel.swift */; };
+		CBF3962F29980B1400915229 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF3962E29980B1400915229 /* Menu.swift */; };
+		CBF3963129980B8700915229 /* ErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF3963029980B8700915229 /* ErrorMessages.swift */; };
+		CBF3963329980C0600915229 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF3963229980C0600915229 /* WebService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		CB5CA3952996CB9800487D47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB5CA3982996CB9800487D47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB5CA39A2996CB9800487D47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBF396262998082900915229 /* OrderResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderResultVC.swift; sourceTree = "<group>"; };
+		CBF39629299808FC00915229 /* DamaLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamaLabel.swift; sourceTree = "<group>"; };
+		CBF3962E29980B1400915229 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		CBF3963029980B8700915229 /* ErrorMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessages.swift; sourceTree = "<group>"; };
+		CBF3963229980C0600915229 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,11 +64,12 @@
 		CB5CA38B2996CB9600487D47 /* dama */ = {
 			isa = PBXGroup;
 			children = (
+				CBF3962D29980B0000915229 /* Services */,
+				CBF3962C29980AF500915229 /* Models */,
+				CBF3962B29980AEA00915229 /* Utils */,
+				CBF396282998089300915229 /* Views */,
 				CB5CA3A12996CC7300487D47 /* App */,
 				CB5CA3A02996CC4500487D47 /* ViewControllers */,
-				CB5CA3952996CB9800487D47 /* Assets.xcassets */,
-				CB5CA3972996CB9800487D47 /* LaunchScreen.storyboard */,
-				CB5CA39A2996CB9800487D47 /* Info.plist */,
 			);
 			path = dama;
 			sourceTree = "<group>";
@@ -67,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				CB5CA3902996CB9600487D47 /* MenuVC.swift */,
+				CBF396262998082900915229 /* OrderResultVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -74,10 +86,45 @@
 		CB5CA3A12996CC7300487D47 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				CB5CA3952996CB9800487D47 /* Assets.xcassets */,
+				CB5CA3972996CB9800487D47 /* LaunchScreen.storyboard */,
+				CB5CA39A2996CB9800487D47 /* Info.plist */,
 				CB5CA38C2996CB9600487D47 /* AppDelegate.swift */,
 				CB5CA38E2996CB9600487D47 /* SceneDelegate.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		CBF396282998089300915229 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CBF39629299808FC00915229 /* DamaLabel.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CBF3962B29980AEA00915229 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CBF3963029980B8700915229 /* ErrorMessages.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CBF3962C29980AF500915229 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CBF3962E29980B1400915229 /* Menu.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CBF3962D29980B0000915229 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CBF3963229980C0600915229 /* WebService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,9 +197,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBF3963129980B8700915229 /* ErrorMessages.swift in Sources */,
+				CBF3962F29980B1400915229 /* Menu.swift in Sources */,
+				CBF3963329980C0600915229 /* WebService.swift in Sources */,
 				CB5CA3912996CB9600487D47 /* MenuVC.swift in Sources */,
 				CB5CA38D2996CB9600487D47 /* AppDelegate.swift in Sources */,
+				CBF396272998082900915229 /* OrderResultVC.swift in Sources */,
 				CB5CA38F2996CB9600487D47 /* SceneDelegate.swift in Sources */,
+				CBF3962A299808FC00915229 /* DamaLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +345,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TQX48B3375;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = dama/Info.plist;
+				INFOPLIST_FILE = dama/App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "담아";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -325,7 +377,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TQX48B3375;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = dama/Info.plist;
+				INFOPLIST_FILE = dama/App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "담아";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
