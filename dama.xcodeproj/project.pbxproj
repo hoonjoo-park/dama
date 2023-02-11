@@ -17,6 +17,7 @@
 		CBF3962F29980B1400915229 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF3962E29980B1400915229 /* Menu.swift */; };
 		CBF3963129980B8700915229 /* ErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF3963029980B8700915229 /* ErrorMessages.swift */; };
 		CBF3963329980C0600915229 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF3963229980C0600915229 /* WebService.swift */; };
+		CBF396352998153100915229 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF396342998153100915229 /* Observable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		CBF3962E29980B1400915229 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		CBF3963029980B8700915229 /* ErrorMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessages.swift; sourceTree = "<group>"; };
 		CBF3963229980C0600915229 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		CBF396342998153100915229 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				CBF3963029980B8700915229 /* ErrorMessages.swift */,
+				CBF396342998153100915229 /* Observable.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				CBF3962F29980B1400915229 /* Menu.swift in Sources */,
 				CBF3963329980C0600915229 /* WebService.swift in Sources */,
 				CB5CA3912996CB9600487D47 /* MenuVC.swift in Sources */,
+				CBF396352998153100915229 /* Observable.swift in Sources */,
 				CB5CA38D2996CB9600487D47 /* AppDelegate.swift in Sources */,
 				CBF396272998082900915229 /* OrderResultVC.swift in Sources */,
 				CB5CA38F2996CB9600487D47 /* SceneDelegate.swift in Sources */,

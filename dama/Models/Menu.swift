@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct Menus: Codable {
+    let menus: [Menu]
+}
+
 struct Menu: Codable {
     let id: Int
     let name: String

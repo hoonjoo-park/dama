@@ -9,21 +9,22 @@ import UIKit
 
 class WebService {
     static let shared = WebService()
-    private let baseUrl = "http://localhost:3306"
+    private let baseUrl = "http://localhost:3000"
     let decoder = JSONDecoder()
     let cache = NSCache<NSString, UIImage>()
     
     func fetchMenus() async throws -> [Menu] {
         guard let url = URL(string: baseUrl + "/menu") else { throw ErrorMessages.InvalidUrl }
+
         let (data, response) = try await URLSession.shared.data(from: url)
-        
+
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
             throw ErrorMessages.InvalidResponse
         }
-        
+
         do {
-            let menus = try decoder.decode([Menu].self, from: data)
-            return menus
+            let menus = try decoder.decode(Menus.self, from: data)
+            return menus.menus
         } catch {
             throw ErrorMessages.InvalidData
         }

@@ -11,7 +11,19 @@ class MenuVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        fetchMenus()
+    }
+    
+    private func fetchMenus() {
+        Task {
+            do {
+                let menus = try await WebService.shared.fetchMenus()
+                
+                print(menus)
+            }
+            catch { throw ErrorMessages.InvalidData }
+        }
     }
 
 
