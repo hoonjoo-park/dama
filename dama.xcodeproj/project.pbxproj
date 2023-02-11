@@ -18,6 +18,7 @@
 		CBF3963129980B8700915229 /* ErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF3963029980B8700915229 /* ErrorMessages.swift */; };
 		CBF3963329980C0600915229 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF3963229980C0600915229 /* WebService.swift */; };
 		CBF396352998153100915229 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF396342998153100915229 /* Observable.swift */; };
+		CBF3963829981B2C00915229 /* MenuVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF3963729981B2C00915229 /* MenuVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		CBF3963029980B8700915229 /* ErrorMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessages.swift; sourceTree = "<group>"; };
 		CBF3963229980C0600915229 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		CBF396342998153100915229 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		CBF3963729981B2C00915229 /* MenuVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,12 +68,13 @@
 		CB5CA38B2996CB9600487D47 /* dama */ = {
 			isa = PBXGroup;
 			children = (
-				CBF3962D29980B0000915229 /* Services */,
-				CBF3962C29980AF500915229 /* Models */,
-				CBF3962B29980AEA00915229 /* Utils */,
-				CBF396282998089300915229 /* Views */,
 				CB5CA3A12996CC7300487D47 /* App */,
+				CBF3962C29980AF500915229 /* Models */,
+				CBF3962D29980B0000915229 /* Services */,
 				CB5CA3A02996CC4500487D47 /* ViewControllers */,
+				CBF3963629981AB400915229 /* ViewModels */,
+				CBF396282998089300915229 /* Views */,
+				CBF3962B29980AEA00915229 /* Utils */,
 			);
 			path = dama;
 			sourceTree = "<group>";
@@ -128,6 +131,14 @@
 				CBF3963229980C0600915229 /* WebService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		CBF3963629981AB400915229 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CBF3963729981B2C00915229 /* MenuVM.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +220,7 @@
 				CBF396272998082900915229 /* OrderResultVC.swift in Sources */,
 				CB5CA38F2996CB9600487D47 /* SceneDelegate.swift in Sources */,
 				CBF3962A299808FC00915229 /* DamaLabel.swift in Sources */,
+				CBF3963829981B2C00915229 /* MenuVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
