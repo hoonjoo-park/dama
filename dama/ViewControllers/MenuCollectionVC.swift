@@ -25,6 +25,7 @@ class MenuCollectionVC: UICollectionViewController {
     override func viewDidLoad() {
         self.collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: configureFlowLayout())
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.isScrollEnabled = false
         
         self.collectionView!.register(MenuCell.self, forCellWithReuseIdentifier: reuseID)
     }
