@@ -11,24 +11,59 @@ private let reuseID = "MenuCell"
 
 class MenuCollectionVC: UICollectionViewController {
     var allMenusVM: AllMenusViewModel!
+    var startLocation: CGFloat!
     
     override init(collectionViewLayout layout: UICollectionViewLayout) {
         super.init(collectionViewLayout: layout)
         
         fetchMenus()
+        
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     override func viewDidLoad() {
-        self.collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: configureFlowLayout())
+        configureCollectionView()
+    }
+    
+    
+    func configureCollectionView() {
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
+        
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: configureFlowLayout())
+        collectionView.addGestureRecognizer(panGesture)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isScrollEnabled = false
         
-        self.collectionView!.register(MenuCell.self, forCellWithReuseIdentifier: reuseID)
+        collectionView!.register(MenuCell.self, forCellWithReuseIdentifier: reuseID)
     }
+    
+    
+    @objc func handlePanGesture(gesture: UIPanGestureRecognizer) {
+        let offsetY = collectionView.contentOffset.y
+        let threshold:CGFloat = 60
+        
+        switch gesture.state {
+        case .began:
+            startLocation = collectionView.contentOffset.x
+        case .changed:
+            let translationX = gesture.translation(in: collectionView).x
+            collectionView.setContentOffset(CGPoint(x: startLocation - translationX, y: offsetY), animated: false)
+        case .ended:
+            let lastX = gesture.translation(in: collectionView).x
+            
+            if (startLocation - lastX < threshold) {
+                collectionView.setContentOffset(CGPoint(x: startLocation, y: offsetY), animated: true)
+            }
+        default:
+            break
+        }
+    }
+    
     
     func configureFlowLayout() -> UICollectionViewLayout {
         let flowLayout = UICollectionViewFlowLayout()
@@ -45,6 +80,7 @@ class MenuCollectionVC: UICollectionViewController {
         return flowLayout
     }
     
+    
     private func fetchMenus() {
         Task {
             do {
@@ -57,6 +93,7 @@ class MenuCollectionVC: UICollectionViewController {
         }
     }
 
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -68,6 +105,7 @@ class MenuCollectionVC: UICollectionViewController {
         return allMenusVM.numberOfRowsInSection(section)
     }
 
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseID, for: indexPath) as? MenuCell else {
             fatalError("MenuCell을 찾을 수 없습니다.")
