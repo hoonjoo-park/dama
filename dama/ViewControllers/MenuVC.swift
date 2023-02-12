@@ -8,24 +8,25 @@
 import UIKit
 
 class MenuVC: UIViewController {
-
+    let collectionVC = MenuCollectionVC()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        fetchMenus()
+        
+        view.backgroundColor = .white
+        configureCollectionVC()
     }
     
-    private func fetchMenus() {
-        Task {
-            do {
-                let menus = try await WebService.shared.fetchMenus()
-                
-                print(menus)
-            }
-            catch { throw ErrorMessages.InvalidData }
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        title = "무엇을 주문하시겠어요?"
     }
-
-
+    
+    private func configureCollectionVC() {
+        addChild(collectionVC)
+        view.addSubview(collectionVC.collectionView)
+        collectionVC.didMove(toParent: self)
+    }
 }
 
