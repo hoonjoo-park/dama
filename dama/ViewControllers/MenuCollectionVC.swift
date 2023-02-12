@@ -12,7 +12,7 @@ private let reuseID = "MenuCell"
 class MenuCollectionVC: UICollectionViewController {
     var allMenusVM: AllMenusViewModel!
     var currentIndex = 0
-    var startLocation: CGFloat!
+    var startX: CGFloat!
     
     override init(collectionViewLayout layout: UICollectionViewLayout) {
         super.init(collectionViewLayout: layout)
@@ -50,17 +50,18 @@ class MenuCollectionVC: UICollectionViewController {
         
         switch gesture.state {
         case .began:
-            startLocation = collectionView.contentOffset.x
+            startX = collectionView.contentOffset.x
         case .changed:
             let translationX = gesture.translation(in: collectionView).x
-            collectionView.setContentOffset(CGPoint(x: startLocation - translationX, y: offsetY), animated: false)
+            collectionView.setContentOffset(CGPoint(x: startX - translationX, y: offsetY), animated: false)
         case .ended:
             let lastX = gesture.translation(in: collectionView).x
+            let movedX = abs(startX - lastX)
             
-            if (startLocation - lastX < threshold) {
-                collectionView.setContentOffset(CGPoint(x: startLocation, y: offsetY), animated: true)
+            if (movedX < threshold) {
+                collectionView.setContentOffset(CGPoint(x: startX, y: offsetY), animated: true)
             } else {
-                collectionView.setContentOffset(CGPoint(x: calcTargetOffsetX(gesture), y: offsetY), animated: true)
+                collectionView.setContentOffset(CGPoint(x: calculateTargetOffsetX(gesture), y: offsetY), animated: true)
             }
         default:
             break
@@ -68,7 +69,7 @@ class MenuCollectionVC: UICollectionViewController {
     }
     
     
-    private func calcTargetOffsetX(_ gesture: UIPanGestureRecognizer) -> CGFloat {
+    private func calculateTargetOffsetX(_ gesture: UIPanGestureRecognizer) -> CGFloat {
         let direction: CGFloat = gesture.velocity(in: collectionView).x > 0 ? -1 : 1
         let nextIndex = max(0, min(allMenusVM.menus.value.count - 1, currentIndex + Int(direction)))
         let pageWidth = UIScreen.main.bounds.width - 20
