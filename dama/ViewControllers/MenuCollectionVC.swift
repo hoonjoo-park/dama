@@ -24,6 +24,8 @@ class MenuCollectionVC: UICollectionViewController {
     
     override func viewDidLoad() {
         self.collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: configureFlowLayout())
+        collectionView.showsHorizontalScrollIndicator = false
+        
         self.collectionView!.register(MenuCell.self, forCellWithReuseIdentifier: reuseID)
     }
     
@@ -36,7 +38,7 @@ class MenuCollectionVC: UICollectionViewController {
         flowLayout.scrollDirection = .horizontal
         flowLayout.itemSize = CGSize(width: cellWidth, height: cellWidth * 1.4)
         flowLayout.sectionInset = UIEdgeInsets(top: 0, left: padding, bottom: 0, right: padding)
-        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumLineSpacing = padding
         flowLayout.minimumInteritemSpacing = 0
         
         return flowLayout

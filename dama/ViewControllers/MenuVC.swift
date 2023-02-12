@@ -37,12 +37,6 @@ class MenuVC: UIViewController {
     
     private func configureUI() {
         view.backgroundColor = .white
-        
-        NSLayoutConstraint.activate([
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
-        ])
     }
 }
 
