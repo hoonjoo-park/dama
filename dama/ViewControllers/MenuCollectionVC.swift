@@ -11,6 +11,7 @@ private let reuseID = "MenuCell"
 
 class MenuCollectionVC: UICollectionViewController {
     var allMenusVM: AllMenusViewModel!
+    var currentIndex = 0
     var startLocation: CGFloat!
     
     override init(collectionViewLayout layout: UICollectionViewLayout) {
@@ -58,10 +59,24 @@ class MenuCollectionVC: UICollectionViewController {
             
             if (startLocation - lastX < threshold) {
                 collectionView.setContentOffset(CGPoint(x: startLocation, y: offsetY), animated: true)
+            } else {
+                collectionView.setContentOffset(CGPoint(x: calcTargetOffsetX(gesture), y: offsetY), animated: true)
             }
         default:
             break
         }
+    }
+    
+    
+    private func calcTargetOffsetX(_ gesture: UIPanGestureRecognizer) -> CGFloat {
+        let direction: CGFloat = gesture.velocity(in: collectionView).x > 0 ? -1 : 1
+        let nextIndex = max(0, min(allMenusVM.menus.value.count - 1, currentIndex + Int(direction)))
+        let pageWidth = UIScreen.main.bounds.width - 20
+        let targetOffsetX = CGFloat(pageWidth) * CGFloat(nextIndex)
+
+        currentIndex = nextIndex
+        
+        return targetOffsetX
     }
     
     
