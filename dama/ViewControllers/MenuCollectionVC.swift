@@ -33,6 +33,7 @@ class MenuCollectionVC: UICollectionViewController {
         let deviceWidth = UIScreen.main.bounds.width
         let cellWidth = deviceWidth - (padding * 2)
         
+        flowLayout.scrollDirection = .horizontal
         flowLayout.itemSize = CGSize(width: cellWidth, height: cellWidth * 1.4)
         flowLayout.sectionInset = UIEdgeInsets(top: 0, left: padding, bottom: 0, right: padding)
         flowLayout.minimumLineSpacing = 0
