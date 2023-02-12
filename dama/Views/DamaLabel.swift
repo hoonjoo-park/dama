@@ -11,6 +11,8 @@ class DamaLabel: UILabel {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        configureLabel()
     }
     
     required init?(coder: NSCoder) {
@@ -22,6 +24,8 @@ class DamaLabel: UILabel {
         
         self.font = UIFont.systemFont(ofSize: fontSize, weight: weight ?? .regular)
         self.textColor = color ?? UIColor.black
+        
+        configureLabel()
     }
     
     func configureLabel() {

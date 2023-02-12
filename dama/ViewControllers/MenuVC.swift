@@ -8,13 +8,15 @@
 import UIKit
 
 class MenuVC: UIViewController {
+    var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureCollectionVC()
-        view.backgroundColor = .white
+        configureUI()
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -22,12 +24,25 @@ class MenuVC: UIViewController {
         title = "무엇을 주문하시겠어요?"
     }
     
+    
     private func configureCollectionVC() {
         let collectionVC = MenuCollectionVC(collectionViewLayout: UICollectionViewLayout())
         
         addChild(collectionVC)
         view.addSubview(collectionVC.collectionView)
         collectionVC.didMove(toParent: self)
+        collectionView = collectionVC.collectionView
+    }
+    
+    
+    private func configureUI() {
+        view.backgroundColor = .white
+        
+        NSLayoutConstraint.activate([
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+        ])
     }
 }
 

@@ -14,6 +14,7 @@ class MenuCollectionVC: UICollectionViewController {
     
     override init(collectionViewLayout layout: UICollectionViewLayout) {
         super.init(collectionViewLayout: layout)
+        
         fetchMenus()
     }
     
@@ -22,7 +23,7 @@ class MenuCollectionVC: UICollectionViewController {
     }
     
     override func viewDidLoad() {
-        self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: configureFlowLayout())
+        self.collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: configureFlowLayout())
         self.collectionView!.register(MenuCell.self, forCellWithReuseIdentifier: reuseID)
     }
     

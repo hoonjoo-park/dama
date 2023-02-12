@@ -11,6 +11,8 @@ class MenuImageView: UIImageView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        configureImageView()
     }
     
     
@@ -19,9 +21,8 @@ class MenuImageView: UIImageView {
     }
     
     private func configureImageView() {
-        translatesAutoresizingMaskIntoConstraints = false
-        contentMode = .scaleAspectFill
-        self.layer.cornerRadius = 12
+        clipsToBounds = true
+        layer.cornerRadius = 12
     }
     
     func downloadImage(url: String) {
