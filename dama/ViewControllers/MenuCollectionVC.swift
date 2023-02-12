@@ -10,20 +10,43 @@ import UIKit
 private let reuseID = "MenuCell"
 
 class MenuCollectionVC: UICollectionViewController {
-    private var allMenusVM: AllMenusViewModel!
-
+    var allMenusVM: AllMenusViewModel!
+    
+    override init(collectionViewLayout layout: UICollectionViewLayout) {
+        super.init(collectionViewLayout: layout)
+        fetchMenus()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseID)
+        self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: configureFlowLayout())
+        self.collectionView!.register(MenuCell.self, forCellWithReuseIdentifier: reuseID)
+    }
+    
+    func configureFlowLayout() -> UICollectionViewLayout {
+        let flowLayout = UICollectionViewFlowLayout()
+        let padding: CGFloat = 20
+        let deviceWidth = UIScreen.main.bounds.width
+        let cellWidth = deviceWidth - (padding * 2)
+        
+        flowLayout.itemSize = CGSize(width: cellWidth, height: cellWidth * 1.4)
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: padding, bottom: 0, right: padding)
+        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumInteritemSpacing = 0
+        
+        return flowLayout
     }
     
     private func fetchMenus() {
         Task {
             do {
                 let menus = try await WebService.shared.fetchMenus()
-                
+
                 allMenusVM = AllMenusViewModel(menus)
+                collectionView.reloadData()
             }
             catch { throw ErrorMessages.InvalidData }
         }
@@ -35,6 +58,8 @@ class MenuCollectionVC: UICollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let allMenusVM = allMenusVM else { return 0}
+        
         return allMenusVM.numberOfRowsInSection(section)
     }
 

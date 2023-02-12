@@ -8,13 +8,12 @@
 import UIKit
 
 class MenuVC: UIViewController {
-    let collectionVC = MenuCollectionVC()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
         configureCollectionVC()
+        view.backgroundColor = .white
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -24,6 +23,8 @@ class MenuVC: UIViewController {
     }
     
     private func configureCollectionVC() {
+        let collectionVC = MenuCollectionVC(collectionViewLayout: UICollectionViewLayout())
+        
         addChild(collectionVC)
         view.addSubview(collectionVC.collectionView)
         collectionVC.didMove(toParent: self)

@@ -10,7 +10,7 @@ import UIKit
 class MenuCell: UICollectionViewCell {
     let menuTitle = DamaLabel(fontSize: 24, weight: .bold, color: .white)
     let menuPrice = DamaLabel(fontSize: 18, weight: .bold, color: .white)
-    var menuImage: MenuImageView!
+    let menuImage = MenuImageView(frame: .zero)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

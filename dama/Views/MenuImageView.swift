@@ -8,11 +8,11 @@
 import UIKit
 
 class MenuImageView: UIImageView {
-    override init(image: UIImage?) {
-        super.init(image: image)
-        
-        configureImageView()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -26,7 +26,7 @@ class MenuImageView: UIImageView {
     
     func downloadImage(url: String) {
         Task {
-            await WebService.shared.downloadImage(imageUrl: url)
+            image = await WebService.shared.downloadImage(imageUrl: url)
         }
     }
 }
