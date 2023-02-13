@@ -36,7 +36,17 @@ class MenuVC: UIViewController {
     
     
     private func configureUI() {
+        let cellHeight = (UIScreen.main.bounds.width - 40) * 1.4
+        
         view.backgroundColor = .white
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.heightAnchor.constraint(equalToConstant: cellHeight)
+        ])
     }
 }
 
