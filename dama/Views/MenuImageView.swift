@@ -8,6 +8,7 @@
 import UIKit
 
 class MenuImageView: UIImageView {
+    let defaultImage = UIImage(named: "place-holder")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,6 +22,7 @@ class MenuImageView: UIImageView {
     }
     
     private func configureImageView() {
+        image = defaultImage
         clipsToBounds = true
         layer.cornerRadius = 12
     }

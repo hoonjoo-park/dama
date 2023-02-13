@@ -24,6 +24,12 @@ class MenuCell: UICollectionViewCell {
     }
     
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        menuImage.image = UIImage(named: "place-holder")
+    }
+    
+    
     private func configureUI() {
         let padding: CGFloat = 20
         
