@@ -101,8 +101,9 @@ class MenuCollectionVC: UICollectionViewController {
         Task {
             do {
                 let menus = try await WebService.shared.fetchMenus()
+                let appendedMenus = [menus[menus.count-1]] + menus + [menus[0]]
 
-                allMenusVM = AllMenusViewModel(menus)
+                allMenusVM = AllMenusViewModel(appendedMenus)
                 collectionView.reloadData()
             }
             catch { throw ErrorMessages.InvalidData }

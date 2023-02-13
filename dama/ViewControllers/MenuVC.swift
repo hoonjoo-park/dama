@@ -25,6 +25,15 @@ class MenuVC: UIViewController {
     }
     
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let initialContentOffsetX: CGFloat = UIScreen.main.bounds.width - 20
+        let fixedContentOffsetY = collectionView.contentOffset.y
+        collectionView.setContentOffset(CGPoint(x: initialContentOffsetX, y: fixedContentOffsetY), animated: false)
+    }
+    
+    
     private func configureCollectionVC() {
         let collectionVC = MenuCollectionVC(collectionViewLayout: UICollectionViewLayout())
         
