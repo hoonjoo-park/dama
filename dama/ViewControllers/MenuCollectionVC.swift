@@ -10,17 +10,16 @@ import UIKit
 private let reuseID = "MenuCell"
 
 class MenuCollectionVC: UICollectionViewController {
+    let padding: CGFloat = 20
+    let deviceWidth = UIScreen.main.bounds.width
+    
     var allMenusVM: AllMenusViewModel!
     var currentIndex = 0
     var identityX: CGFloat!
     var touchStartX: CGFloat!
     
-    let padding: CGFloat = 20
-    let deviceWidth = UIScreen.main.bounds.width
-    
     override init(collectionViewLayout layout: UICollectionViewLayout) {
         super.init(collectionViewLayout: layout)
-        
         fetchMenus()
     }
     
@@ -72,9 +71,8 @@ class MenuCollectionVC: UICollectionViewController {
             
             collectionView.setContentOffset(CGPoint(x: self.calculateTargetOffsetX(gesture, swipeDistance), y: offsetY), animated: true)
             
-            if currentIndex == 0 || currentIndex == lastIndex {
-                moveToRealSection(lastIndex, swipeDistance, offsetY)
-            }
+            let isEdge = currentIndex == 0 || currentIndex == lastIndex
+            if isEdge { moveToRealSection(lastIndex, swipeDistance, offsetY) }
             
         default:
             break
