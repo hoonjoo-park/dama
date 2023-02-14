@@ -12,13 +12,16 @@ private let reuseID = "MenuCell"
 class MenuCollectionVC: UICollectionViewController {
     var allMenusVM: AllMenusViewModel!
     var currentIndex = 0
-    var startX: CGFloat!
+    var identityX: CGFloat!
+    var touchStartX: CGFloat!
+    
+    let padding: CGFloat = 20
+    let deviceWidth = UIScreen.main.bounds.width
     
     override init(collectionViewLayout layout: UICollectionViewLayout) {
         super.init(collectionViewLayout: layout)
         
         fetchMenus()
-        
     }
     
     
@@ -39,7 +42,6 @@ class MenuCollectionVC: UICollectionViewController {
         collectionView.addGestureRecognizer(panGesture)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isScrollEnabled = false
-        
         collectionView!.register(MenuCell.self, forCellWithReuseIdentifier: reuseID)
     }
     
@@ -47,44 +49,64 @@ class MenuCollectionVC: UICollectionViewController {
     @objc func handlePanGesture(gesture: UIPanGestureRecognizer) {
         let offsetY = collectionView.contentOffset.y
         let threshold:CGFloat = 60
+        let lastIndex = allMenusVM.menus.value.count - 1
+        let swipeDistance = deviceWidth - padding
         
         switch gesture.state {
         case .began:
-            startX = collectionView.contentOffset.x
+            identityX = collectionView.contentOffset.x
+            touchStartX = gesture.translation(in: collectionView).x
+            break
         case .changed:
             let translationX = gesture.translation(in: collectionView).x
-            collectionView.setContentOffset(CGPoint(x: startX - translationX, y: offsetY), animated: false)
+            collectionView.setContentOffset(CGPoint(x: identityX - translationX, y: offsetY), animated: false)
+            break
         case .ended:
             let lastX = gesture.translation(in: collectionView).x
-            let movedX = abs(startX - lastX)
+            let movedX = abs(touchStartX - lastX)
             
             if (movedX < threshold) {
-                collectionView.setContentOffset(CGPoint(x: startX, y: offsetY), animated: true)
-            } else {
-                collectionView.setContentOffset(CGPoint(x: calculateTargetOffsetX(gesture), y: offsetY), animated: true)
+                collectionView.setContentOffset(CGPoint(x: identityX, y: offsetY), animated: true)
+                break
             }
+            
+            collectionView.setContentOffset(CGPoint(x: self.calculateTargetOffsetX(gesture, swipeDistance), y: offsetY), animated: true)
+            
+            if currentIndex == 0 || currentIndex == lastIndex {
+                moveToRealSection(lastIndex, swipeDistance, offsetY)
+            }
+            
         default:
             break
         }
     }
     
     
-    private func calculateTargetOffsetX(_ gesture: UIPanGestureRecognizer) -> CGFloat {
+    private func calculateTargetOffsetX(_ gesture: UIPanGestureRecognizer, _ swipeDistance: CGFloat) -> CGFloat {
         let direction: CGFloat = gesture.velocity(in: collectionView).x > 0 ? -1 : 1
         let nextIndex = max(0, min(allMenusVM.menus.value.count - 1, currentIndex + Int(direction)))
-        let pageWidth = UIScreen.main.bounds.width - 20
-        let targetOffsetX = CGFloat(pageWidth) * CGFloat(nextIndex)
-
+        let targetOffsetX = CGFloat(swipeDistance) * CGFloat(nextIndex)
+        
         currentIndex = nextIndex
         
         return targetOffsetX
     }
     
     
+    private func moveToRealSection(_ lastIndex: Int, _ swipeDistance: CGFloat, _ offsetY: CGFloat) {
+        let maxOffsetX = swipeDistance * CGFloat(lastIndex - 1)
+        let nextIndex = currentIndex == 0 ? lastIndex - 1 : 1
+        let targetOffsetX = currentIndex == 0 ? maxOffsetX : swipeDistance
+        currentIndex = nextIndex
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { [self] in
+            collectionView.setContentOffset(CGPoint(x: targetOffsetX, y: offsetY), animated: false)
+        }
+    }
+    
+    
     func configureFlowLayout() -> UICollectionViewLayout {
         let flowLayout = UICollectionViewFlowLayout()
-        let padding: CGFloat = 20
-        let deviceWidth = UIScreen.main.bounds.width
         let cellWidth = deviceWidth - (padding * 2)
         
         flowLayout.scrollDirection = .horizontal
@@ -102,26 +124,26 @@ class MenuCollectionVC: UICollectionViewController {
             do {
                 let menus = try await WebService.shared.fetchMenus()
                 let appendedMenus = [menus[menus.count-1]] + menus + [menus[0]]
-
+                
                 allMenusVM = AllMenusViewModel(appendedMenus)
                 collectionView.reloadData()
             }
             catch { throw ErrorMessages.InvalidData }
         }
     }
-
+    
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
-
+    
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let allMenusVM = allMenusVM else { return 0}
         
         return allMenusVM.numberOfRowsInSection(section)
     }
-
+    
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseID, for: indexPath) as? MenuCell else {
@@ -129,7 +151,7 @@ class MenuCollectionVC: UICollectionViewController {
         }
         
         allMenusVM.configureCell(indexPath.row, cell)
-    
+        
         return cell
     }
 }
