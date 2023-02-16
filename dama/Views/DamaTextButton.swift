@@ -8,14 +8,25 @@
 import UIKit
 
 class DamaTextButton: UIButton {
+    var buttonLabel = DamaLabel(fontSize: 20, weight: .bold, color: .white)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        configureUI()
     }
     
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    private func configureUI() {
+        translatesAutoresizingMaskIntoConstraints = false
+        layer.cornerRadius = 12
+        
+        addSubview(buttonLabel)
     }
 
 }

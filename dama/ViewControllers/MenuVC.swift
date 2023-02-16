@@ -8,12 +8,19 @@
 import UIKit
 
 class MenuVC: UIViewController {
+    let padding:CGFloat = 25
     var collectionView: UICollectionView!
+    let totalCountLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: .black)
+    let totalCountBodyLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: .black)
+    let currentCountLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: .black)
+    let currentCountBodyLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: .black)
+    let bottomButton = DamaTextButton(frame: .zero)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureCollectionVC()
+        configureSubViews()
         configureUI()
     }
     
@@ -28,7 +35,7 @@ class MenuVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let initialContentOffsetX: CGFloat = UIScreen.main.bounds.width - 20
+        let initialContentOffsetX: CGFloat = UIScreen.main.bounds.width - 25
         let fixedContentOffsetY = collectionView.contentOffset.y
         collectionView.setContentOffset(CGPoint(x: initialContentOffsetX, y: fixedContentOffsetY), animated: false)
     }
@@ -44,17 +51,38 @@ class MenuVC: UIViewController {
     }
     
     
+    private func configureSubViews() {
+        [totalCountLabel, currentCountLabel, bottomButton].forEach { view.addSubview($0) }
+        totalCountLabel.text = "담은 개수"
+        currentCountLabel.text = "수량"
+    }
+    
+    
     private func configureUI() {
-        let cellHeight = (UIScreen.main.bounds.width - 40) * 1.4
+        let cellHeight = (UIScreen.main.bounds.width - (padding * 2)) * 1.3
         
         view.backgroundColor = .white
+        bottomButton.backgroundColor = .orange
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.heightAnchor.constraint(equalToConstant: cellHeight)
+            collectionView.heightAnchor.constraint(equalToConstant: cellHeight),
+            
+            totalCountLabel.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 40),
+            totalCountLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            totalCountLabel.widthAnchor.constraint(equalToConstant: 80),
+            
+            currentCountLabel.topAnchor.constraint(equalTo: totalCountLabel.bottomAnchor, constant: 40),
+            currentCountLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            currentCountLabel.widthAnchor.constraint(equalToConstant: 80),
+            
+            bottomButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            bottomButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            bottomButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            bottomButton.heightAnchor.constraint(equalToConstant: 60),
         ])
     }
 }

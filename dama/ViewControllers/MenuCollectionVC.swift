@@ -10,7 +10,7 @@ import UIKit
 private let reuseID = "MenuCell"
 
 class MenuCollectionVC: UICollectionViewController {
-    let padding: CGFloat = 20
+    let padding: CGFloat = 25
     let deviceWidth = UIScreen.main.bounds.width
     
     var allMenusVM: AllMenusViewModel!
@@ -108,7 +108,7 @@ class MenuCollectionVC: UICollectionViewController {
         let cellWidth = deviceWidth - (padding * 2)
         
         flowLayout.scrollDirection = .horizontal
-        flowLayout.itemSize = CGSize(width: cellWidth, height: cellWidth * 1.4)
+        flowLayout.itemSize = CGSize(width: cellWidth, height: cellWidth * 1.3)
         flowLayout.sectionInset = UIEdgeInsets(top: 0, left: padding, bottom: 0, right: padding)
         flowLayout.minimumLineSpacing = padding
         flowLayout.minimumInteritemSpacing = 0

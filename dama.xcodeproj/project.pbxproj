@@ -12,6 +12,7 @@
 		CB5CA3912996CB9600487D47 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5CA3902996CB9600487D47 /* MenuVC.swift */; };
 		CB5CA3962996CB9800487D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB5CA3952996CB9800487D47 /* Assets.xcassets */; };
 		CB5CA3992996CB9800487D47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5CA3972996CB9800487D47 /* LaunchScreen.storyboard */; };
+		CB9B8C3B299E9BB100EF05E5 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9B8C3A299E9BB100EF05E5 /* CounterView.swift */; };
 		CBCA493C2998CDFD00867AD4 /* MenuImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA493B2998CDFD00867AD4 /* MenuImageView.swift */; };
 		CBCA493E2998D19300867AD4 /* DamaTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA493D2998D19300867AD4 /* DamaTextButton.swift */; };
 		CBCA49402998D1A200867AD4 /* DamaIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA493F2998D1A200867AD4 /* DamaIconButton.swift */; };
@@ -35,6 +36,7 @@
 		CB5CA3952996CB9800487D47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB5CA3982996CB9800487D47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB5CA39A2996CB9800487D47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB9B8C3A299E9BB100EF05E5 /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 		CBCA493B2998CDFD00867AD4 /* MenuImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuImageView.swift; sourceTree = "<group>"; };
 		CBCA493D2998D19300867AD4 /* DamaTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamaTextButton.swift; sourceTree = "<group>"; };
 		CBCA493F2998D1A200867AD4 /* DamaIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamaIconButton.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				CBCA493D2998D19300867AD4 /* DamaTextButton.swift */,
 				CBCA493F2998D1A200867AD4 /* DamaIconButton.swift */,
 				CBCA49452998F2CA00867AD4 /* MenuCell.swift */,
+				CB9B8C3A299E9BB100EF05E5 /* CounterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBF3963129980B8700915229 /* ErrorMessages.swift in Sources */,
+				CB9B8C3B299E9BB100EF05E5 /* CounterView.swift in Sources */,
 				CBF3962F29980B1400915229 /* Menu.swift in Sources */,
 				CBF3963329980C0600915229 /* WebService.swift in Sources */,
 				CBCA49442998EF7200867AD4 /* MenuViewModel.swift in Sources */,
