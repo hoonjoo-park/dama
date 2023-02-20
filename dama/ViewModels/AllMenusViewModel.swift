@@ -12,9 +12,11 @@ struct AllMenusViewModel {
     
     init(_ menus: [Menu]) { self.menus = Observable(menus) }
     
+    
     func numberOfRowsInSection(_ section: Int) -> Int {
         return self.menus.value.count
     }
+    
     
     func configureCell(_ index: Int, _ cell: MenuCell) {
         let menu = menus.value[index]
