@@ -22,11 +22,21 @@ class DamaTextButton: UIButton {
     }
     
     
+    func setText(_ text: String) {
+        self.buttonLabel.text = text
+    }
+    
+    
     private func configureUI() {
         translatesAutoresizingMaskIntoConstraints = false
         layer.cornerRadius = 12
         
         addSubview(buttonLabel)
+        
+        NSLayoutConstraint.activate([
+            buttonLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            buttonLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+        ])
     }
 
 }

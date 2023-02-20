@@ -11,9 +11,10 @@ class MenuVC: UIViewController {
     let padding:CGFloat = 25
     var collectionView: UICollectionView!
     let totalCountLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
-    let totalCountBodyLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
-    let currentCountLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
-    let currentCountBodyLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
+    let totalCountValue = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
+    let totalPriceLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
+    let totalPriceValue = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
+    let menuButton = DamaIconButton(frame: .zero, image: UIImage(named: "menu")!)
     let bottomButton = DamaTextButton(frame: .zero)
     
     override func viewDidLoad() {
@@ -52,9 +53,10 @@ class MenuVC: UIViewController {
     
     
     private func configureSubViews() {
-        [totalCountLabel, currentCountLabel, bottomButton].forEach { view.addSubview($0) }
+        [totalCountLabel, totalPriceLabel, menuButton, bottomButton].forEach { view.addSubview($0) }
+        bottomButton.setText("주문하기")
         totalCountLabel.text = "담은 개수"
-        currentCountLabel.text = "수량"
+        totalPriceLabel.text = "총 주문 금액"
     }
     
     
@@ -64,6 +66,9 @@ class MenuVC: UIViewController {
         view.backgroundColor = DamaColors.white
         bottomButton.backgroundColor = DamaColors.orange
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        menuButton.layer.borderWidth = 1
+        menuButton.layer.borderColor = DamaColors.orange.cgColor
         
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -75,12 +80,17 @@ class MenuVC: UIViewController {
             totalCountLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             totalCountLabel.widthAnchor.constraint(equalToConstant: 80),
             
-            currentCountLabel.topAnchor.constraint(equalTo: totalCountLabel.bottomAnchor, constant: 40),
-            currentCountLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            currentCountLabel.widthAnchor.constraint(equalToConstant: 80),
+            totalPriceLabel.topAnchor.constraint(equalTo: totalCountLabel.bottomAnchor, constant: 40),
+            totalPriceLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            totalPriceLabel.widthAnchor.constraint(equalToConstant: 140),
+            
+            menuButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            menuButton.widthAnchor.constraint(equalToConstant: 60),
+            menuButton.heightAnchor.constraint(equalToConstant: 60),
+            menuButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             
             bottomButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            bottomButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            bottomButton.leadingAnchor.constraint(equalTo: menuButton.trailingAnchor, constant: 10),
             bottomButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
             bottomButton.heightAnchor.constraint(equalToConstant: 60),
         ])
