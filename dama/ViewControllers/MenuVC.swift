@@ -14,7 +14,7 @@ class MenuVC: UIViewController {
     let totalCountValue = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
     let totalPriceLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
     let totalPriceValue = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
-    let menuButton = DamaIconButton(frame: .zero, image: UIImage(named: "menu")!)
+    let menuButton = MenuButton(frame: .zero)
     let bottomButton = DamaTextButton(frame: .zero)
     
     override func viewDidLoad() {

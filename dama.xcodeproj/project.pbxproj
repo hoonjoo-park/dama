@@ -14,6 +14,7 @@
 		CB5CA3992996CB9800487D47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5CA3972996CB9800487D47 /* LaunchScreen.storyboard */; };
 		CB6217E829A38516009D64A3 /* DamaColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6217E729A38516009D64A3 /* DamaColor.swift */; };
 		CB6217EB29A38590009D64A3 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6217EA29A38590009D64A3 /* UIColor+Ext.swift */; };
+		CB6217EF29A393E7009D64A3 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6217EE29A393E7009D64A3 /* MenuButton.swift */; };
 		CB9B8C3B299E9BB100EF05E5 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9B8C3A299E9BB100EF05E5 /* CounterView.swift */; };
 		CBCA493C2998CDFD00867AD4 /* MenuImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA493B2998CDFD00867AD4 /* MenuImageView.swift */; };
 		CBCA493E2998D19300867AD4 /* DamaTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA493D2998D19300867AD4 /* DamaTextButton.swift */; };
@@ -40,6 +41,7 @@
 		CB5CA39A2996CB9800487D47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB6217E729A38516009D64A3 /* DamaColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamaColor.swift; sourceTree = "<group>"; };
 		CB6217EA29A38590009D64A3 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		CB6217EE29A393E7009D64A3 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		CB9B8C3A299E9BB100EF05E5 /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 		CBCA493B2998CDFD00867AD4 /* MenuImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuImageView.swift; sourceTree = "<group>"; };
 		CBCA493D2998D19300867AD4 /* DamaTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamaTextButton.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				CBCA493F2998D1A200867AD4 /* DamaIconButton.swift */,
 				CBCA49452998F2CA00867AD4 /* MenuCell.swift */,
 				CB9B8C3A299E9BB100EF05E5 /* CounterView.swift */,
+				CB6217EE29A393E7009D64A3 /* MenuButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				CB5CA38D2996CB9600487D47 /* AppDelegate.swift in Sources */,
 				CBCA49402998D1A200867AD4 /* DamaIconButton.swift in Sources */,
 				CBF396272998082900915229 /* OrderResultVC.swift in Sources */,
+				CB6217EF29A393E7009D64A3 /* MenuButton.swift in Sources */,
 				CBCA493C2998CDFD00867AD4 /* MenuImageView.swift in Sources */,
 				CB6217E829A38516009D64A3 /* DamaColor.swift in Sources */,
 				CB5CA38F2996CB9600487D47 /* SceneDelegate.swift in Sources */,

@@ -14,7 +14,11 @@ class DamaIconButton: UIButton {
         super.init(frame: frame)
         
         iconImage.image = image
-        
+        configureUI()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         configureUI()
     }
     
