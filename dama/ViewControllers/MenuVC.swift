@@ -14,7 +14,7 @@ class MenuVC: UIViewController {
     let totalCountValue = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
     let totalPriceLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
     let totalPriceValue = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
-    let menuButton = MenuButton(frame: .zero)
+    let cartButton = CartButton(frame: .zero)
     let bottomButton = DamaTextButton(frame: .zero)
     
     override func viewDidLoad() {
@@ -53,7 +53,7 @@ class MenuVC: UIViewController {
     
     
     private func configureSubViews() {
-        [totalCountLabel, totalPriceLabel, menuButton, bottomButton].forEach { view.addSubview($0) }
+        [totalCountLabel, totalPriceLabel, cartButton, bottomButton].forEach { view.addSubview($0) }
         bottomButton.setText("주문하기")
         totalCountLabel.text = "담은 개수"
         totalPriceLabel.text = "총 주문 금액"
@@ -66,9 +66,6 @@ class MenuVC: UIViewController {
         view.backgroundColor = DamaColors.white
         bottomButton.backgroundColor = DamaColors.orange
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
-        menuButton.layer.borderWidth = 1
-        menuButton.layer.borderColor = DamaColors.orange.cgColor
         
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -84,13 +81,13 @@ class MenuVC: UIViewController {
             totalPriceLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             totalPriceLabel.widthAnchor.constraint(equalToConstant: 140),
             
-            menuButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            menuButton.widthAnchor.constraint(equalToConstant: 60),
-            menuButton.heightAnchor.constraint(equalToConstant: 60),
-            menuButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            cartButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            cartButton.widthAnchor.constraint(equalToConstant: 60),
+            cartButton.heightAnchor.constraint(equalToConstant: 60),
+            cartButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             
             bottomButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            bottomButton.leadingAnchor.constraint(equalTo: menuButton.trailingAnchor, constant: 10),
+            bottomButton.leadingAnchor.constraint(equalTo: cartButton.trailingAnchor, constant: 10),
             bottomButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
             bottomButton.heightAnchor.constraint(equalToConstant: 60),
         ])
