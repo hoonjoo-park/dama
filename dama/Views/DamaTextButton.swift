@@ -8,7 +8,7 @@
 import UIKit
 
 class DamaTextButton: UIButton {
-    var buttonLabel = DamaLabel(fontSize: 20, weight: .bold, color: .white)
+    var buttonLabel = DamaLabel(fontSize: 20, weight: .bold, color: DamaColors.white)
 
     override init(frame: CGRect) {
         super.init(frame: frame)

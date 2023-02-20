@@ -8,8 +8,8 @@
 import UIKit
 
 class MenuCell: UICollectionViewCell {
-    let menuTitle = DamaLabel(fontSize: 24, weight: .bold, color: .white)
-    let menuPrice = DamaLabel(fontSize: 18, weight: .bold, color: .white)
+    let menuTitle = DamaLabel(fontSize: 24, weight: .bold, color: DamaColors.white)
+    let menuPrice = DamaLabel(fontSize: 18, weight: .bold, color: DamaColors.white)
     let menuImage = MenuImageView(frame: .zero)
     
     override init(frame: CGRect) {
@@ -34,7 +34,7 @@ class MenuCell: UICollectionViewCell {
         let padding: CGFloat = 20
         
         let overlay = UIView(frame: self.bounds)
-        overlay.backgroundColor = .black.withAlphaComponent(0.3)
+        overlay.backgroundColor = DamaColors.black.withAlphaComponent(0.3)
         
         
         addSubview(menuImage)

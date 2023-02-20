@@ -10,10 +10,10 @@ import UIKit
 class MenuVC: UIViewController {
     let padding:CGFloat = 25
     var collectionView: UICollectionView!
-    let totalCountLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: .black)
-    let totalCountBodyLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: .black)
-    let currentCountLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: .black)
-    let currentCountBodyLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: .black)
+    let totalCountLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
+    let totalCountBodyLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
+    let currentCountLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
+    let currentCountBodyLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
     let bottomButton = DamaTextButton(frame: .zero)
     
     override func viewDidLoad() {
@@ -61,8 +61,8 @@ class MenuVC: UIViewController {
     private func configureUI() {
         let cellHeight = (UIScreen.main.bounds.width - (padding * 2)) * 1.3
         
-        view.backgroundColor = .white
-        bottomButton.backgroundColor = .orange
+        view.backgroundColor = DamaColors.white
+        bottomButton.backgroundColor = DamaColors.orange
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([

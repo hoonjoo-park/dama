@@ -23,7 +23,7 @@ class DamaLabel: UILabel {
         self.init(frame: .zero)
         
         self.font = UIFont.systemFont(ofSize: fontSize, weight: weight ?? .regular)
-        self.textColor = color ?? UIColor.black
+        self.textColor = color ?? DamaColors.black
         
         configureLabel()
     }
