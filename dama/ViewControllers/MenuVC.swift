@@ -57,7 +57,7 @@ class MenuVC: UIViewController {
         [totalCountLabel, totalCountValue, totalPriceLabel, totalPriceValue, cartButton, bottomButton].forEach { view.addSubview($0) }
         bottomButton.setText("주문하기")
         totalCountLabel.text = "담은 개수"
-        totalCountValue.text = "개"
+        totalCountValue.text = "0"
         totalPriceLabel.text = "총 주문 금액"
         totalPriceValue.text = "원"
     }

@@ -15,6 +15,7 @@ class MenuCollectionVC: UICollectionViewController {
     
     var allMenusVM: AllMenusViewModel!
     var currentIndex = 0
+    var currentMenu: Observable<Menu>!
     var identityX: CGFloat!
     var touchStartX: CGFloat!
     
@@ -86,6 +87,11 @@ class MenuCollectionVC: UICollectionViewController {
         let targetOffsetX = CGFloat(swipeDistance) * CGFloat(nextIndex)
         
         currentIndex = nextIndex
+        currentMenu = Observable(allMenusVM.currentMenu(currentIndex))
+        
+        currentMenu.subscribe { menu in
+            print(menu)
+        }
         
         return targetOffsetX
     }
@@ -135,7 +141,7 @@ class MenuCollectionVC: UICollectionViewController {
         return 1
     }
     
-    
+     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let allMenusVM = allMenusVM else { return 0}
         
