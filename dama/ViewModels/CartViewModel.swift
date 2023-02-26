@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct CartViewModel {
-    var cart: [[String: Any]]
+class CartViewModel {
+    var cart: [[String: Any]]!
+    var currentMenu: [String: Any]!
+    
     
     init(menus: [Menu]) {
         let cartItem = menus.map { menu in
@@ -16,5 +18,9 @@ struct CartViewModel {
         }
         
         self.cart = cartItem
+    }
+    
+    func setCurrentMenu(_ index:Int) {
+        self.currentMenu = self.cart[index]
     }
 }
