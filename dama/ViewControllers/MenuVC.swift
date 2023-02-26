@@ -11,7 +11,7 @@ class MenuVC: UIViewController {
     let padding:CGFloat = 25
     var collectionView: UICollectionView!
     let totalCountLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
-    let totalCountValue = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
+    let countView = CountView(frame: .zero)
     let totalPriceLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
     let totalPriceValue = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
     let cartButton = CartButton(frame: .zero)
@@ -54,10 +54,10 @@ class MenuVC: UIViewController {
     
     
     private func configureSubViews() {
-        [totalCountLabel, totalCountValue, totalPriceLabel, totalPriceValue, cartButton, bottomButton].forEach { view.addSubview($0) }
+        [totalCountLabel, countView, totalPriceLabel, totalPriceValue, cartButton, bottomButton].forEach { view.addSubview($0) }
         bottomButton.setText("주문하기")
         totalCountLabel.text = "담은 개수"
-        totalCountValue.text = "0"
+        countView.totalCountValue.text = "0"
         totalPriceLabel.text = "총 주문 금액"
         totalPriceValue.text = "원"
     }
@@ -96,8 +96,10 @@ class MenuVC: UIViewController {
             totalCountLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             totalCountLabel.widthAnchor.constraint(equalToConstant: 80),
             
-            totalCountValue.centerYAnchor.constraint(equalTo: totalCountLabel.centerYAnchor),
-            totalCountValue.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            countView.centerYAnchor.constraint(equalTo: totalCountLabel.centerYAnchor),
+            countView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            countView.widthAnchor.constraint(equalToConstant: 167),
+            countView.heightAnchor.constraint(equalToConstant: 50),
             
             totalPriceLabel.topAnchor.constraint(equalTo: totalCountLabel.bottomAnchor, constant: 40),
             totalPriceLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
