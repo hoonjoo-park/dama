@@ -18,11 +18,6 @@ struct AllMenusViewModel {
     }
     
     
-    func currentMenu(_ currentIndex: Int) -> Menu {
-        return self.menus.value[currentIndex]
-    }
-    
-    
     func configureCell(_ index: Int, _ cell: MenuCell) {
         let menu = menus.value[index]
         let menuVM = MenuViewModel(menu: Observable(menu))

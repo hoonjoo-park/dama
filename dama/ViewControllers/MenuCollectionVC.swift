@@ -14,8 +14,9 @@ class MenuCollectionVC: UICollectionViewController {
     let deviceWidth = UIScreen.main.bounds.width
     
     var allMenusVM: AllMenusViewModel!
+    var cartVM: CartViewModel!
     var currentIndex = 0
-    var currentMenu: Observable<Menu>!
+    var currentMenu: [String: Any]!
     var identityX: CGFloat!
     var touchStartX: CGFloat!
     
@@ -87,11 +88,7 @@ class MenuCollectionVC: UICollectionViewController {
         let targetOffsetX = CGFloat(swipeDistance) * CGFloat(nextIndex)
         
         currentIndex = nextIndex
-        currentMenu = Observable(allMenusVM.currentMenu(currentIndex))
-        
-        currentMenu.subscribe { menu in
-            print(menu)
-        }
+        currentMenu = cartVM.cart[currentIndex]
         
         return targetOffsetX
     }
@@ -130,6 +127,7 @@ class MenuCollectionVC: UICollectionViewController {
                 let appendedMenus = [menus[menus.count-1]] + menus + [menus[0]]
                 
                 allMenusVM = AllMenusViewModel(appendedMenus)
+                cartVM = CartViewModel(menus: appendedMenus)
                 collectionView.reloadData()
             }
             catch { throw ErrorMessages.InvalidData }
