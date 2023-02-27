@@ -25,19 +25,19 @@ class CartViewModel {
             return ["item": menu, "count": 0]
         }
         
-        self.cart = cartItem
-        self.currentMenu = cartItem[1]
+        cart = cartItem
+        currentMenu = cartItem[1]
     }
     
     
     func setCurrentMenu(_ index:Int) {
-        self.currentMenu = self.cart[index]
-        self.currentIndex = index
+        currentMenu = cart[index]
+        currentIndex = index
     }
     
     
     func updateMenuCount(_ count: Int) {
-        self.cart[self.currentIndex]["count"] = max(0, (self.cart[self.currentIndex]["count"] as? Int ?? 0) + count)
-        currentMenu = self.cart[self.currentIndex]
+        cart[currentIndex]["count"] = max(0, (cart[currentIndex]["count"] as? Int ?? 0) + count)
+        currentMenu = cart[currentIndex]
     }
 }
