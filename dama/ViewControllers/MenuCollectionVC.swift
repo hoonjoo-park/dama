@@ -15,7 +15,6 @@ class MenuCollectionVC: UICollectionViewController {
     
     var allMenusVM: AllMenusViewModel!
     var cartVM = CartViewModel.shared
-    var currentIndex = 0
     var identityX: CGFloat!
     var touchStartX: CGFloat!
     
@@ -72,7 +71,7 @@ class MenuCollectionVC: UICollectionViewController {
             
             collectionView.setContentOffset(CGPoint(x: self.calculateTargetOffsetX(gesture, swipeDistance), y: offsetY), animated: true)
             
-            let isEdge = currentIndex == 0 || currentIndex == lastIndex
+            let isEdge = cartVM.currentIndex == 0 || cartVM.currentIndex == lastIndex
             if isEdge { moveToRealSection(lastIndex, swipeDistance, offsetY) }
             
         default:
@@ -83,11 +82,10 @@ class MenuCollectionVC: UICollectionViewController {
     
     private func calculateTargetOffsetX(_ gesture: UIPanGestureRecognizer, _ swipeDistance: CGFloat) -> CGFloat {
         let direction: CGFloat = gesture.velocity(in: collectionView).x > 0 ? -1 : 1
-        let nextIndex = max(0, min(allMenusVM.menus.value.count - 1, currentIndex + Int(direction)))
+        let nextIndex = max(0, min(allMenusVM.menus.value.count - 1, cartVM.currentIndex + Int(direction)))
         let targetOffsetX = CGFloat(swipeDistance) * CGFloat(nextIndex)
         
-        currentIndex = nextIndex
-        cartVM.setCurrentMenu(currentIndex)
+        cartVM.setCurrentMenu(nextIndex)
         
         return targetOffsetX
     }
@@ -95,9 +93,9 @@ class MenuCollectionVC: UICollectionViewController {
     
     private func moveToRealSection(_ lastIndex: Int, _ swipeDistance: CGFloat, _ offsetY: CGFloat) {
         let maxOffsetX = swipeDistance * CGFloat(lastIndex - 1)
-        let nextIndex = currentIndex == 0 ? lastIndex - 1 : 1
-        let targetOffsetX = currentIndex == 0 ? maxOffsetX : swipeDistance
-        currentIndex = nextIndex
+        let nextIndex = cartVM.currentIndex == 0 ? lastIndex - 1 : 1
+        let targetOffsetX = cartVM.currentIndex == 0 ? maxOffsetX : swipeDistance
+        cartVM.currentIndex = nextIndex
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { [self] in
             collectionView.setContentOffset(CGPoint(x: targetOffsetX, y: offsetY), animated: false)

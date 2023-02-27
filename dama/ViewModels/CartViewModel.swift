@@ -12,6 +12,7 @@ class CartViewModel {
     
     var cart = [[String: Any]]()
     var currentMenu = [String: Any]()
+    var currentIndex = 1
     
     private init() {
         cart = [[String: Any]]()
@@ -31,5 +32,12 @@ class CartViewModel {
     
     func setCurrentMenu(_ index:Int) {
         self.currentMenu = self.cart[index]
+        self.currentIndex = index
+    }
+    
+    
+    func updateMenuCount(_ count: Int) {
+        self.cart[self.currentIndex]["count"] = max(0, (self.cart[self.currentIndex]["count"] as? Int ?? 0) + count)
+        currentMenu = self.cart[self.currentIndex]
     }
 }
