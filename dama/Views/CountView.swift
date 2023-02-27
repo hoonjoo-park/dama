@@ -11,31 +11,18 @@ class CountView: UIView {
     let plusButton = DamaIconButton(frame: .zero, image: UIImage(systemName: "plus")!)
     let totalCountValue = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
     let minusButton = DamaIconButton(frame: .zero, image: UIImage(systemName: "minus")!)
-    var menus: [Menu]!
-    var cartVM: CartViewModel!
+    var cartVM = CartViewModel.shared
 
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()
-        configureViewModel()
         configureAddTarget()
     }
     
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    
-    private func configureViewModel() {
-        guard let menus = self.menus else { return }
-        cartVM = CartViewModel(menus: menus)
-    }
-    
-    private func configureAddTarget() {
-        minusButton.addTarget(self, action: #selector(onTappedMinusButton), for: .touchUpInside)
-        plusButton.addTarget(self, action: #selector(onTappedPlusButton), for: .touchUpInside)
     }
     
     
@@ -70,12 +57,18 @@ class CountView: UIView {
     }
     
     
+    private func configureAddTarget() {
+        minusButton.addTarget(self, action: #selector(onTappedMinusButton), for: .touchUpInside)
+        plusButton.addTarget(self, action: #selector(onTappedPlusButton), for: .touchUpInside)
+    }
+    
+    
     @objc func onTappedPlusButton() {
-        print(cartVM)
+        print(cartVM.currentMenu)
     }
     
     @objc func onTappedMinusButton() {
-        print(cartVM)
+        print(cartVM.currentMenu)
     }
     
 }

@@ -8,17 +8,26 @@
 import Foundation
 
 class CartViewModel {
-    var cart: [[String: Any]]!
-    var currentMenu: [String: Any]!
+    static let shared = CartViewModel()
+    
+    var cart = [[String: Any]]()
+    var currentMenu = [String: Any]()
+    
+    private init() {
+        cart = [[String: Any]]()
+        currentMenu = [String: Any]()
+    }
     
     
-    init(menus: [Menu]) {
+    func setCart(menus: [Menu]) {
         let cartItem = menus.map { menu in
             return ["item": menu, "count": 0]
         }
         
         self.cart = cartItem
+        self.currentMenu = cartItem[1]
     }
+    
     
     func setCurrentMenu(_ index:Int) {
         self.currentMenu = self.cart[index]
