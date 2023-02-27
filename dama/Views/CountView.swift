@@ -9,7 +9,7 @@ import UIKit
 
 class CountView: UIView {
     let plusButton = DamaIconButton(frame: .zero, image: UIImage(systemName: "plus")!)
-    let totalCountValue = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
+    let totalCountLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
     let minusButton = DamaIconButton(frame: .zero, image: UIImage(systemName: "minus")!)
     var cartVM = CartViewModel.shared
 
@@ -32,7 +32,7 @@ class CountView: UIView {
         layer.borderColor = DamaColors.lightGray.cgColor
         layer.cornerRadius = 12
         
-        [plusButton, minusButton, totalCountValue].forEach { addSubview($0) }
+        [plusButton, minusButton, totalCountLabel].forEach { addSubview($0) }
         [plusButton, minusButton].forEach { button in
             button.backgroundColor = DamaColors.lightGray
             button.layer.cornerRadius = 15
@@ -41,8 +41,8 @@ class CountView: UIView {
         }
         
         NSLayoutConstraint.activate([
-            totalCountValue.centerXAnchor.constraint(equalTo: centerXAnchor),
-            totalCountValue.centerYAnchor.constraint(equalTo: centerYAnchor),
+            totalCountLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            totalCountLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             
             minusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             minusButton.centerYAnchor.constraint(equalTo: centerYAnchor),
@@ -65,10 +65,12 @@ class CountView: UIView {
     
     @objc func onTappedPlusButton() {
         cartVM.updateMenuCount(1)
+        totalCountLabel.text = "\(cartVM.currentMenu["count"] ?? 0)"
     }
     
     @objc func onTappedMinusButton() {
         cartVM.updateMenuCount(-1)
+        totalCountLabel.text = "\(cartVM.currentMenu["count"] ?? 0)"
     }
     
 }
