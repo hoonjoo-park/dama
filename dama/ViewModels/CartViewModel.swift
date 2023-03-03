@@ -11,12 +11,11 @@ class CartViewModel {
     static let shared = CartViewModel()
     
     var cart = [[String: Any]]()
-    var currentMenu = [String: Any]()
+    var currentMenu: Observable<[String: Any]> = Observable([String: Any]())
     var currentIndex = 1
     
     private init() {
         cart = [[String: Any]]()
-        currentMenu = [String: Any]()
     }
     
     
@@ -26,18 +25,18 @@ class CartViewModel {
         }
         
         cart = cartItem
-        currentMenu = cartItem[1]
+        currentMenu.value = cartItem[1]
     }
     
     
     func setCurrentMenu(_ index:Int) {
-        currentMenu = cart[index]
+        currentMenu.value = cart[index]
         currentIndex = index
     }
     
     
     func updateMenuCount(_ count: Int) {
         cart[currentIndex]["count"] = max(0, (cart[currentIndex]["count"] as? Int ?? 0) + count)
-        currentMenu = cart[currentIndex]
+        currentMenu.value = cart[currentIndex]
     }
 }

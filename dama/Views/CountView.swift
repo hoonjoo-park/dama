@@ -18,6 +18,11 @@ class CountView: UIView {
         super.init(frame: frame)
         configureUI()
         configureAddTarget()
+        
+        cartVM.currentMenu.subscribe { [weak self] currentMenu in
+            guard let count = currentMenu["count"] as? Int else { return }
+            self?.totalCountLabel.text = "\(count)"
+        }
     }
     
     
@@ -65,12 +70,10 @@ class CountView: UIView {
     
     @objc func onTappedPlusButton() {
         cartVM.updateMenuCount(1)
-        totalCountLabel.text = "\(cartVM.currentMenu["count"] ?? 0)"
     }
     
     @objc func onTappedMinusButton() {
         cartVM.updateMenuCount(-1)
-        totalCountLabel.text = "\(cartVM.currentMenu["count"] ?? 0)"
     }
     
 }
