@@ -12,8 +12,9 @@ class CartVC: UIViewController {
     
     let bottomButton = DamaTextButton(frame: .zero)
     let cartContainer = UIView(frame: .zero)
+    let cartStackView = UIStackView()
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = nil
@@ -21,6 +22,7 @@ class CartVC: UIViewController {
         configureSubViews()
         configureCartContainerUI()
         configureUI()
+        configureStackView()
     }
     
     
@@ -45,6 +47,7 @@ class CartVC: UIViewController {
     
     private func configureSubViews() {
         [cartContainer, bottomButton].forEach { view.addSubview($0) }
+        cartContainer.addSubview(cartStackView)
     }
     
     
@@ -71,7 +74,7 @@ class CartVC: UIViewController {
             cartContainer.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
             cartContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             cartContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            cartContainer.heightAnchor.constraint(equalToConstant: 50),
+//            cartContainer.heightAnchor.constraint(equalToConstant: 50),
             
             bottomButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             bottomButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
@@ -79,5 +82,34 @@ class CartVC: UIViewController {
             bottomButton.heightAnchor.constraint(equalToConstant: 60),
         ])
     }
-
+    
+    
+    private func configureStackView() {
+        let cartMenus = cartVM.cart.value.filter { cartMenu in
+            guard let count = cartMenu["count"] as? Int else { return false }
+            return count > 0
+        }
+        
+        cartMenus.forEach { cartMenu in
+            guard let item = cartMenu["item"] as? Menu else { return }
+            
+            let titleLabel = DamaLabel(fontSize: 16, weight: .bold, color: DamaColors.black)
+            titleLabel.text = item.name
+            
+            cartStackView.addArrangedSubview(titleLabel)
+        }
+        
+        cartStackView.translatesAutoresizingMaskIntoConstraints = false
+        cartStackView.axis = .vertical
+        cartStackView.alignment = .fill
+        cartStackView.distribution = .fillEqually
+        cartStackView.spacing = 40
+        
+        NSLayoutConstraint.activate([
+            cartStackView.topAnchor.constraint(equalTo: cartContainer.topAnchor, constant: 30),
+            cartStackView.leadingAnchor.constraint(equalTo: cartContainer.leadingAnchor, constant: 20),
+            cartStackView.trailingAnchor.constraint(equalTo: cartContainer.trailingAnchor, constant: -20),
+            cartStackView.bottomAnchor.constraint(equalTo: cartContainer.bottomAnchor, constant: -30)
+        ])
+    }
 }
