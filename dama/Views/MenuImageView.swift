@@ -14,7 +14,6 @@ class MenuImageView: UIImageView {
         super.init(frame: frame)
         
         configureImageView()
-//        configureShadow()
     }
     
     
