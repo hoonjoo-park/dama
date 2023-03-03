@@ -56,10 +56,12 @@ class MenuCollectionVC: UICollectionViewController {
             identityX = collectionView.contentOffset.x
             touchStartX = gesture.translation(in: collectionView).x
             break
+            
         case .changed:
             let translationX = gesture.translation(in: collectionView).x
             collectionView.setContentOffset(CGPoint(x: identityX - translationX, y: offsetY), animated: false)
             break
+            
         case .ended:
             let lastX = gesture.translation(in: collectionView).x
             let movedX = abs(touchStartX - lastX)

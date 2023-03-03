@@ -25,7 +25,7 @@ class MenuVC: UIViewController {
         
         configureCollectionVC()
         configureSubViews()
-        configureBottomButton()
+        configureButtonsTarget()
         configureUI()
         configureSubscribe()
     }
@@ -70,7 +70,7 @@ class MenuVC: UIViewController {
     }
     
     
-    private func configureBottomButton() {
+    private func configureButtonsTarget() {
         bottomButton.addTarget(self, action: #selector(onTappedBottomButton), for: .touchUpInside)
     }
     
