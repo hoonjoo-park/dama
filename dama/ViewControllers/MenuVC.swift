@@ -9,7 +9,10 @@ import UIKit
 
 class MenuVC: UIViewController {
     let padding:CGFloat = 25
+    
     var collectionView: UICollectionView!
+    let cartVM = CartViewModel.shared
+    
     let totalCountLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
     let countView = CountView(frame: .zero)
     let totalPriceLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
@@ -24,6 +27,7 @@ class MenuVC: UIViewController {
         configureSubViews()
         configureBottomButton()
         configureUI()
+        configureSubscribe()
     }
     
     
@@ -57,9 +61,12 @@ class MenuVC: UIViewController {
         [totalCountLabel, countView, totalPriceLabel, totalPriceValue, cartButton, bottomButton].forEach { view.addSubview($0) }
         bottomButton.setText("주문하기")
         totalCountLabel.text = "담은 개수"
-        countView.totalCountLabel.text = "0"
+        countView.countLabel.text = "0"
         totalPriceLabel.text = "총 주문 금액"
-        totalPriceValue.text = "원"
+        
+        cartVM.totalPrice.subscribe { [weak self] price in
+            self?.totalPriceValue.text = "\(transPrice(price)) 원"
+        }
     }
     
     
@@ -118,6 +125,14 @@ class MenuVC: UIViewController {
             bottomButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
             bottomButton.heightAnchor.constraint(equalToConstant: 60),
         ])
+    }
+    
+    
+    private func configureSubscribe() {
+        cartVM.currentMenu.subscribe { [weak self] currentMenu in
+            guard let count = currentMenu["count"] as? Int else { return }
+            self?.countView.countLabel.text = "\(count)"
+        }
     }
 }
 

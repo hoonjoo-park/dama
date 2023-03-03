@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CB05964629AA48BA00D24F10 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB05964529AA48BA00D24F10 /* CartViewModel.swift */; };
 		CB32CE3429A3974C00F8E173 /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB32CE3329A3974C00F8E173 /* CartVC.swift */; };
+		CB4F63F029B2218E008F231C /* Public.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4F63EF29B2218E008F231C /* Public.swift */; };
 		CB5CA38D2996CB9600487D47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5CA38C2996CB9600487D47 /* AppDelegate.swift */; };
 		CB5CA38F2996CB9600487D47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5CA38E2996CB9600487D47 /* SceneDelegate.swift */; };
 		CB5CA3912996CB9600487D47 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5CA3902996CB9600487D47 /* MenuVC.swift */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		CB05964529AA48BA00D24F10 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		CB32CE3329A3974C00F8E173 /* CartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
+		CB4F63EF29B2218E008F231C /* Public.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Public.swift; sourceTree = "<group>"; };
 		CB5CA3892996CB9600487D47 /* dama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dama.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB5CA38C2996CB9600487D47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB5CA38E2996CB9600487D47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				CBF3963029980B8700915229 /* ErrorMessages.swift */,
 				CBF396342998153100915229 /* Observable.swift */,
 				CB6217E729A38516009D64A3 /* DamaColor.swift */,
+				CB4F63EF29B2218E008F231C /* Public.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				CBAE8A7E29A532D900E748CB /* CountView.swift in Sources */,
 				CB5CA38D2996CB9600487D47 /* AppDelegate.swift in Sources */,
 				CBCA49402998D1A200867AD4 /* DamaIconButton.swift in Sources */,
+				CB4F63F029B2218E008F231C /* Public.swift in Sources */,
 				CBF396272998082900915229 /* OrderResultVC.swift in Sources */,
 				CB6217EF29A393E7009D64A3 /* CartButton.swift in Sources */,
 				CBCA493C2998CDFD00867AD4 /* MenuImageView.swift in Sources */,

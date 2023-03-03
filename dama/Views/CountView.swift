@@ -9,7 +9,7 @@ import UIKit
 
 class CountView: UIView {
     let plusButton = DamaIconButton(frame: .zero, image: UIImage(systemName: "plus")!)
-    let totalCountLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
+    let countLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
     let minusButton = DamaIconButton(frame: .zero, image: UIImage(systemName: "minus")!)
     var cartVM = CartViewModel.shared
 
@@ -18,11 +18,6 @@ class CountView: UIView {
         super.init(frame: frame)
         configureUI()
         configureAddTarget()
-        
-        cartVM.currentMenu.subscribe { [weak self] currentMenu in
-            guard let count = currentMenu["count"] as? Int else { return }
-            self?.totalCountLabel.text = "\(count)"
-        }
     }
     
     
@@ -37,7 +32,7 @@ class CountView: UIView {
         layer.borderColor = DamaColors.lightGray.cgColor
         layer.cornerRadius = 12
         
-        [plusButton, minusButton, totalCountLabel].forEach { addSubview($0) }
+        [plusButton, minusButton, countLabel].forEach { addSubview($0) }
         [plusButton, minusButton].forEach { button in
             button.backgroundColor = DamaColors.lightGray
             button.layer.cornerRadius = 15
@@ -46,8 +41,8 @@ class CountView: UIView {
         }
         
         NSLayoutConstraint.activate([
-            totalCountLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            totalCountLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            countLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            countLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             
             minusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             minusButton.centerYAnchor.constraint(equalTo: centerYAnchor),
