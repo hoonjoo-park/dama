@@ -27,7 +27,6 @@ class MenuVC: UIViewController {
         configureSubViews()
         configureButtonsTarget()
         configureUI()
-        configureSubscribe()
     }
     
     
@@ -35,6 +34,7 @@ class MenuVC: UIViewController {
         super.viewWillAppear(animated)
         
         title = "무엇을 주문하시겠어요?"
+        configureSubscribe()
     }
     
     
@@ -63,10 +63,6 @@ class MenuVC: UIViewController {
         totalCountLabel.text = "담은 개수"
         countView.countLabel.text = "0"
         totalPriceLabel.text = "총 주문 금액"
-        
-        cartVM.totalPrice.subscribe { [weak self] price in
-            self?.totalPriceValue.text = "\(transPrice(price)) 원"
-        }
     }
     
     
@@ -132,6 +128,10 @@ class MenuVC: UIViewController {
         cartVM.currentMenu.subscribe { [weak self] currentMenu in
             guard let count = currentMenu["count"] as? Int else { return }
             self?.countView.countLabel.text = "\(count)"
+        }
+        
+        cartVM.totalPrice.subscribe { [weak self] price in
+            self?.totalPriceValue.text = "\(transPrice(price)) 원"
         }
     }
 }

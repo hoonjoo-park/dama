@@ -27,10 +27,19 @@ class CartVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        configureSubscribe()
+        
         title = "장바구니"
         self.navigationController?.navigationBar.tintColor = DamaColors.black
         self.navigationController?.navigationBar.topItem?.title = ""
         view.backgroundColor = DamaColors.white
+    }
+    
+    
+    private func configureSubscribe() {
+        cartVM.totalPrice.subscribe { [weak self] price in
+            self?.bottomButton.setText("\(transPrice(price))원 주문하기")
+        }
     }
     
     
