@@ -95,7 +95,8 @@ class MenuCollectionVC: UICollectionViewController {
         let maxOffsetX = swipeDistance * CGFloat(lastIndex - 1)
         let nextIndex = cartVM.currentIndex == 0 ? lastIndex - 1 : 1
         let targetOffsetX = cartVM.currentIndex == 0 ? maxOffsetX : swipeDistance
-        cartVM.currentIndex = nextIndex
+        
+        cartVM.setCurrentMenu(nextIndex)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { [self] in
             collectionView.setContentOffset(CGPoint(x: targetOffsetX, y: offsetY), animated: false)

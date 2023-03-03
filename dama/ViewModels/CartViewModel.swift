@@ -41,6 +41,7 @@ class CartViewModel {
     
     
     func setCurrentMenu(_ index:Int) {
+        guard index > 0 || index < cart.value.count - 1 else { return }
         currentMenu.value = cart.value[index]
         currentIndex = index
     }
