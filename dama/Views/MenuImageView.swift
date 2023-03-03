@@ -14,6 +14,7 @@ class MenuImageView: UIImageView {
         super.init(frame: frame)
         
         configureImageView()
+//        configureShadow()
     }
     
     
@@ -21,11 +22,13 @@ class MenuImageView: UIImageView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     private func configureImageView() {
         image = defaultImage
-        clipsToBounds = true
         layer.cornerRadius = 12
+        clipsToBounds = true
     }
+    
     
     func downloadImage(url: String) {
         Task {

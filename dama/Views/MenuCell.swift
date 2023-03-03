@@ -16,6 +16,7 @@ class MenuCell: UICollectionViewCell {
         super.init(frame: frame)
         
         configureUI()
+        configureShadow()
     }
     
     
@@ -51,5 +52,13 @@ class MenuCell: UICollectionViewCell {
             menuPrice.leadingAnchor.constraint(equalTo: menuTitle.leadingAnchor),
             menuPrice.trailingAnchor.constraint(equalTo: menuTitle.trailingAnchor),
         ])
+    }
+    
+    
+    private func configureShadow() {
+        layer.shadowColor = DamaColors.black.cgColor
+        layer.shadowOpacity = 0.35
+        layer.shadowRadius = 4
+        layer.shadowOffset = CGSize(width: 2, height: 2)
     }
 }
