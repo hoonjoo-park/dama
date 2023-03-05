@@ -73,7 +73,7 @@ class MenuCollectionVC: UICollectionViewController {
             
             collectionView.setContentOffset(CGPoint(x: self.calculateTargetOffsetX(gesture, swipeDistance), y: offsetY), animated: true)
             
-            let isEdge = cartVM.currentIndex == 0 || cartVM.currentIndex == lastIndex
+            let isEdge = cartVM.currentIndex.value == 0 || cartVM.currentIndex.value == lastIndex
             if isEdge { moveToRealSection(lastIndex, swipeDistance, offsetY) }
             
         default:
@@ -84,7 +84,7 @@ class MenuCollectionVC: UICollectionViewController {
     
     private func calculateTargetOffsetX(_ gesture: UIPanGestureRecognizer, _ swipeDistance: CGFloat) -> CGFloat {
         let direction: CGFloat = gesture.velocity(in: collectionView).x > 0 ? -1 : 1
-        let nextIndex = max(0, min(allMenusVM.menus.value.count - 1, cartVM.currentIndex + Int(direction)))
+        let nextIndex = max(0, min(allMenusVM.menus.value.count - 1, cartVM.currentIndex.value + Int(direction)))
         let targetOffsetX = CGFloat(swipeDistance) * CGFloat(nextIndex)
         
         cartVM.setCurrentMenu(nextIndex)
@@ -95,8 +95,8 @@ class MenuCollectionVC: UICollectionViewController {
     
     private func moveToRealSection(_ lastIndex: Int, _ swipeDistance: CGFloat, _ offsetY: CGFloat) {
         let maxOffsetX = swipeDistance * CGFloat(lastIndex - 1)
-        let nextIndex = cartVM.currentIndex == 0 ? lastIndex - 1 : 1
-        let targetOffsetX = cartVM.currentIndex == 0 ? maxOffsetX : swipeDistance
+        let nextIndex = cartVM.currentIndex.value == 0 ? lastIndex - 1 : 1
+        let targetOffsetX = cartVM.currentIndex.value == 0 ? maxOffsetX : swipeDistance
         
         cartVM.setCurrentMenu(nextIndex)
         

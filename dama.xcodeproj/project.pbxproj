@@ -19,7 +19,6 @@
 		CB6217E829A38516009D64A3 /* DamaColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6217E729A38516009D64A3 /* DamaColor.swift */; };
 		CB6217EB29A38590009D64A3 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6217EA29A38590009D64A3 /* UIColor+Ext.swift */; };
 		CB6217EF29A393E7009D64A3 /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6217EE29A393E7009D64A3 /* CartButton.swift */; };
-		CB9B8C3B299E9BB100EF05E5 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9B8C3A299E9BB100EF05E5 /* CounterView.swift */; };
 		CBAE8A7E29A532D900E748CB /* CountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE8A7D29A532D900E748CB /* CountView.swift */; };
 		CBCA493C2998CDFD00867AD4 /* MenuImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA493B2998CDFD00867AD4 /* MenuImageView.swift */; };
 		CBCA493E2998D19300867AD4 /* DamaTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA493D2998D19300867AD4 /* DamaTextButton.swift */; };
@@ -51,7 +50,6 @@
 		CB6217E729A38516009D64A3 /* DamaColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamaColor.swift; sourceTree = "<group>"; };
 		CB6217EA29A38590009D64A3 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		CB6217EE29A393E7009D64A3 /* CartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
-		CB9B8C3A299E9BB100EF05E5 /* CounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
 		CBAE8A7D29A532D900E748CB /* CountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountView.swift; sourceTree = "<group>"; };
 		CBCA493B2998CDFD00867AD4 /* MenuImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuImageView.swift; sourceTree = "<group>"; };
 		CBCA493D2998D19300867AD4 /* DamaTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamaTextButton.swift; sourceTree = "<group>"; };
@@ -149,7 +147,6 @@
 				CBCA493D2998D19300867AD4 /* DamaTextButton.swift */,
 				CBCA493F2998D1A200867AD4 /* DamaIconButton.swift */,
 				CBCA49452998F2CA00867AD4 /* MenuCell.swift */,
-				CB9B8C3A299E9BB100EF05E5 /* CounterView.swift */,
 				CB6217EE29A393E7009D64A3 /* CartButton.swift */,
 				CBAE8A7D29A532D900E748CB /* CountView.swift */,
 				CB232AF429B486F20038665F /* CartItemView.swift */,
@@ -265,7 +262,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBF3963129980B8700915229 /* ErrorMessages.swift in Sources */,
-				CB9B8C3B299E9BB100EF05E5 /* CounterView.swift in Sources */,
 				CB32CE3429A3974C00F8E173 /* CartVC.swift in Sources */,
 				CB232AF529B486F20038665F /* CartItemView.swift in Sources */,
 				CBF3962F29980B1400915229 /* Menu.swift in Sources */,

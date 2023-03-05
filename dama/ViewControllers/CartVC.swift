@@ -22,6 +22,7 @@ class CartVC: UIViewController {
         configureSubViews()
         configureCartContainerUI()
         configureUI()
+        configureStackSubViews()
         configureStackView()
     }
     
@@ -83,7 +84,7 @@ class CartVC: UIViewController {
     }
     
     
-    private func configureStackView() {
+    private func configureStackSubViews() {
         let cartMenus = cartVM.cart.value.dropFirst().dropLast().filter { cartMenu in
             guard let count = cartMenu["count"] as? Int else { return false }
             return count > 0
@@ -93,6 +94,7 @@ class CartVC: UIViewController {
             let emptyLabel = DamaLabel(fontSize: 14, weight: .medium, color: DamaColors.black)
             emptyLabel.text = "담은 상품이 아직 없어요...🥺"
             cartStackView.addArrangedSubview(emptyLabel)
+            return
         }
         
         cartMenus.forEach { cartMenu in
@@ -100,7 +102,10 @@ class CartVC: UIViewController {
             
             cartStackView.addArrangedSubview(cartItemView)
         }
-        
+    }
+    
+    
+    private func configureStackView() {
         cartStackView.translatesAutoresizingMaskIntoConstraints = false
         cartStackView.axis = .vertical
         cartStackView.alignment = .fill

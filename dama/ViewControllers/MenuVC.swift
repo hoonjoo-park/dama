@@ -125,6 +125,11 @@ class MenuVC: UIViewController {
     
     
     private func configureSubscribe() {
+        cartVM.cart.subscribe { [weak self] cart in
+            guard let totalPrice = self?.cartVM.calcTotalPrice() else { return }
+            self?.cartVM.totalPrice.value = totalPrice
+        }
+        
         cartVM.currentMenu.subscribe { [weak self] currentMenu in
             guard let count = currentMenu["count"] as? Int else { return }
             self?.countView.countLabel.text = "\(count)"

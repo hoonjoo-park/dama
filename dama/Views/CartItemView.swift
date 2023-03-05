@@ -23,6 +23,7 @@ class CartItemView: UIView {
         
         self.cartItem = cartItem
         
+        configureSubscribe()
         configureText()
         configureUI()
         configureCountViewUI()
@@ -32,6 +33,22 @@ class CartItemView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    private func configureSubscribe() {
+        cartVM.cart.subscribe { [weak self] cart in
+            guard let item = self?.cartItem["item"] as? Menu else { return }
+            guard let updatedCartItem = self?.cartVM.getCartItemById(item.id) else { return }
+            
+            guard let updatedItem = updatedCartItem["item"] as? Menu, let updatedCount = updatedCartItem["count"] as? Int else { return }
+            
+            self?.itemPrice.text = "\(transPrice(updatedItem.price * updatedCount))원"
+            self?.itemCount.text = "\(updatedCount)"
+            
+            guard let updatedTotalPrice = self?.cartVM.calcTotalPrice() else { return }
+            self?.cartVM.totalPrice.value = updatedTotalPrice
+        }
     }
     
     
@@ -76,16 +93,16 @@ class CartItemView: UIView {
         NSLayoutConstraint.activate([
             heightAnchor.constraint(equalToConstant: 53),
             
-            plusButton.leadingAnchor.constraint(equalTo: countView.leadingAnchor),
-            plusButton.widthAnchor.constraint(equalToConstant: 20),
-            plusButton.heightAnchor.constraint(equalToConstant: 20),
+            minusButton.leadingAnchor.constraint(equalTo: countView.leadingAnchor),
+            minusButton.widthAnchor.constraint(equalToConstant: 20),
+            minusButton.heightAnchor.constraint(equalToConstant: 20),
             
             itemCount.centerXAnchor.constraint(equalTo: countView.centerXAnchor),
             itemCount.centerYAnchor.constraint(equalTo: countView.centerYAnchor),
             
-            minusButton.trailingAnchor.constraint(equalTo: countView.trailingAnchor),
-            minusButton.widthAnchor.constraint(equalToConstant: 20),
-            minusButton.heightAnchor.constraint(equalToConstant: 20),
+            plusButton.trailingAnchor.constraint(equalTo: countView.trailingAnchor),
+            plusButton.widthAnchor.constraint(equalToConstant: 20),
+            plusButton.heightAnchor.constraint(equalToConstant: 20),
         ])
     }
     
@@ -97,12 +114,14 @@ class CartItemView: UIView {
     
     
     @objc func onPressPlusButton() {
-        print("Plus!")
+        guard let item = cartItem["item"] as? Menu else { return }
+        cartVM.updateMenuCount(item.id, 1)
     }
   
     
     @objc func onPressMinusButton() {
-        print("Minus!")
+        guard let item = cartItem["item"] as? Menu else { return }
+        cartVM.updateMenuCount(item.id, -1)
     }
     
 }
