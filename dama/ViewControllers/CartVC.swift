@@ -96,12 +96,9 @@ class CartVC: UIViewController {
         }
         
         cartMenus.forEach { cartMenu in
-            guard let item = cartMenu["item"] as? Menu else { return }
+            let cartItemView = CartItemView(frame: .zero, cartItem: cartMenu)
             
-            let titleLabel = DamaLabel(fontSize: 16, weight: .bold, color: DamaColors.black)
-            titleLabel.text = item.name
-            
-            cartStackView.addArrangedSubview(titleLabel)
+            cartStackView.addArrangedSubview(cartItemView)
         }
         
         cartStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -110,11 +107,11 @@ class CartVC: UIViewController {
         cartStackView.distribution = .fillEqually
         cartStackView.spacing = 40
         
-        NSLayoutConstraint.activate([
-            cartStackView.topAnchor.constraint(equalTo: cartContainer.topAnchor, constant: 30),
+        NSLayoutConstraint.activate([            
+            cartStackView.topAnchor.constraint(equalTo: cartContainer.topAnchor, constant: 35),
             cartStackView.leadingAnchor.constraint(equalTo: cartContainer.leadingAnchor, constant: 20),
             cartStackView.trailingAnchor.constraint(equalTo: cartContainer.trailingAnchor, constant: -20),
-            cartStackView.bottomAnchor.constraint(equalTo: cartContainer.bottomAnchor, constant: -30)
+            cartStackView.bottomAnchor.constraint(equalTo: cartContainer.bottomAnchor, constant: -35),
         ])
     }
 }
