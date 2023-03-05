@@ -74,7 +74,6 @@ class CartVC: UIViewController {
             cartContainer.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
             cartContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             cartContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-//            cartContainer.heightAnchor.constraint(equalToConstant: 50),
             
             bottomButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             bottomButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
@@ -85,9 +84,15 @@ class CartVC: UIViewController {
     
     
     private func configureStackView() {
-        let cartMenus = cartVM.cart.value.filter { cartMenu in
+        let cartMenus = cartVM.cart.value.dropFirst().dropLast().filter { cartMenu in
             guard let count = cartMenu["count"] as? Int else { return false }
             return count > 0
+        }
+        
+        if cartMenus.count == 0 {
+            let emptyLabel = DamaLabel(fontSize: 14, weight: .medium, color: DamaColors.black)
+            emptyLabel.text = "담은 상품이 아직 없어요...🥺"
+            cartStackView.addArrangedSubview(emptyLabel)
         }
         
         cartMenus.forEach { cartMenu in

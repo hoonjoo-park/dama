@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CB05964629AA48BA00D24F10 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB05964529AA48BA00D24F10 /* CartViewModel.swift */; };
+		CB232AF529B486F20038665F /* CartItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB232AF429B486F20038665F /* CartItemView.swift */; };
 		CB32CE3429A3974C00F8E173 /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB32CE3329A3974C00F8E173 /* CartVC.swift */; };
 		CB4F63F029B2218E008F231C /* Public.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4F63EF29B2218E008F231C /* Public.swift */; };
 		CB5CA38D2996CB9600487D47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5CA38C2996CB9600487D47 /* AppDelegate.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		CB05964529AA48BA00D24F10 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
+		CB232AF429B486F20038665F /* CartItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemView.swift; sourceTree = "<group>"; };
 		CB32CE3329A3974C00F8E173 /* CartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
 		CB4F63EF29B2218E008F231C /* Public.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Public.swift; sourceTree = "<group>"; };
 		CB5CA3892996CB9600487D47 /* dama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dama.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +152,7 @@
 				CB9B8C3A299E9BB100EF05E5 /* CounterView.swift */,
 				CB6217EE29A393E7009D64A3 /* CartButton.swift */,
 				CBAE8A7D29A532D900E748CB /* CountView.swift */,
+				CB232AF429B486F20038665F /* CartItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				CBF3963129980B8700915229 /* ErrorMessages.swift in Sources */,
 				CB9B8C3B299E9BB100EF05E5 /* CounterView.swift in Sources */,
 				CB32CE3429A3974C00F8E173 /* CartVC.swift in Sources */,
+				CB232AF529B486F20038665F /* CartItemView.swift in Sources */,
 				CBF3962F29980B1400915229 /* Menu.swift in Sources */,
 				CBF3963329980C0600915229 /* WebService.swift in Sources */,
 				CB6217EB29A38590009D64A3 /* UIColor+Ext.swift in Sources */,

@@ -47,8 +47,20 @@ class CartViewModel {
     }
     
     
-    func updateMenuCount(_ count: Int) {
+    func updateCurrentMenuCount(_ count: Int) {
         cart.value[currentIndex]["count"] = max(0, (cart.value[currentIndex]["count"] as? Int ?? 0) + count)
         currentMenu.value = cart.value[currentIndex]
+    }
+    
+    
+    func updateMenuCount(_ id: Int, _ count: Int) {
+        let index = cart.value.firstIndex(where: {
+            guard let item = $0["item"] as? Menu else { return false }
+            return item.id == id
+        })
+        
+        if let targetIndex = index {
+            cart.value[targetIndex]["count"] = max(0, (cart.value[targetIndex]["count"] as? Int ?? 0) + count)
+        }
     }
 }

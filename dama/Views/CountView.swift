@@ -64,11 +64,11 @@ class CountView: UIView {
     
     
     @objc func onTappedPlusButton() {
-        cartVM.updateMenuCount(1)
+        cartVM.updateCurrentMenuCount(1)
     }
     
     @objc func onTappedMinusButton() {
-        cartVM.updateMenuCount(-1)
+        cartVM.updateCurrentMenuCount(-1)
     }
     
 }
