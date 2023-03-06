@@ -16,6 +16,7 @@ class CountView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         configureUI()
         configureAddTarget()
     }

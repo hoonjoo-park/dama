@@ -128,6 +128,21 @@ class MenuVC: UIViewController {
         cartVM.cart.subscribe { [weak self] cart in
             guard let totalPrice = self?.cartVM.calcTotalPrice() else { return }
             self?.cartVM.totalPrice.value = totalPrice
+            
+            guard let cart = self?.cartVM.cart.value,
+                  let currentIndex = self?.cartVM.currentIndex.value,
+                  let count = cart[currentIndex]["count"] as? Int,
+                  !cart.isEmpty else { return }
+            
+            self?.countView.countLabel.text = "\(count)"
+        }
+        
+        cartVM.currentIndex.subscribe { [weak self] currentIndex in
+            guard let cart = self?.cartVM.cart.value,
+                  let count = cart[currentIndex]["count"] as? Int,
+                  !cart.isEmpty else { return }
+            
+            self?.countView.countLabel.text = "\(count)"
         }
         
         cartVM.totalPrice.subscribe { [weak self] price in
