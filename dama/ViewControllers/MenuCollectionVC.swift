@@ -87,7 +87,7 @@ class MenuCollectionVC: UICollectionViewController {
         let nextIndex = max(0, min(allMenusVM.menus.value.count - 1, cartVM.currentIndex.value + Int(direction)))
         let targetOffsetX = CGFloat(swipeDistance) * CGFloat(nextIndex)
         
-        cartVM.setCurrentMenu(nextIndex)
+        cartVM.setCurrentIndex(nextIndex)
         
         return targetOffsetX
     }
@@ -98,7 +98,7 @@ class MenuCollectionVC: UICollectionViewController {
         let nextIndex = cartVM.currentIndex.value == 0 ? lastIndex - 1 : 1
         let targetOffsetX = cartVM.currentIndex.value == 0 ? maxOffsetX : swipeDistance
         
-        cartVM.setCurrentMenu(nextIndex)
+        cartVM.setCurrentIndex(nextIndex)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { [self] in
             collectionView.setContentOffset(CGPoint(x: targetOffsetX, y: offsetY), animated: false)

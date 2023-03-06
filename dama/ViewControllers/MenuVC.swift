@@ -130,11 +130,6 @@ class MenuVC: UIViewController {
             self?.cartVM.totalPrice.value = totalPrice
         }
         
-        cartVM.currentMenu.subscribe { [weak self] currentMenu in
-            guard let count = currentMenu["count"] as? Int else { return }
-            self?.countView.countLabel.text = "\(count)"
-        }
-        
         cartVM.totalPrice.subscribe { [weak self] price in
             self?.totalPriceValue.text = "\(transPrice(price)) 원"
         }
