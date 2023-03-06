@@ -12,6 +12,7 @@ private let reuseID = "MenuCell"
 class MenuCollectionVC: UICollectionViewController {
     let padding: CGFloat = 25
     let deviceWidth = UIScreen.main.bounds.width
+    let swipeDistance = UIScreen.main.bounds.width - 25
     
     var allMenusVM: AllMenusViewModel!
     var cartVM = CartViewModel.shared
@@ -49,7 +50,6 @@ class MenuCollectionVC: UICollectionViewController {
         let offsetY = collectionView.contentOffset.y
         let threshold:CGFloat = 60
         let lastIndex = allMenusVM.menus.value.count - 1
-        let swipeDistance = deviceWidth - padding
         
         switch gesture.state {
         case .began:

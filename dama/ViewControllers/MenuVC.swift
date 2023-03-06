@@ -43,7 +43,8 @@ class MenuVC: UIViewController {
         
         let initialContentOffsetX: CGFloat = UIScreen.main.bounds.width - 25
         let fixedContentOffsetY = collectionView.contentOffset.y
-        collectionView.setContentOffset(CGPoint(x: initialContentOffsetX, y: fixedContentOffsetY), animated: false)
+        
+        collectionView.setContentOffset(CGPoint(x: initialContentOffsetX * CGFloat(cartVM.currentIndex.value), y: fixedContentOffsetY), animated: false)
     }
     
     
@@ -131,16 +132,19 @@ class MenuVC: UIViewController {
             
             guard let cart = self?.cartVM.cart.value,
                   let currentIndex = self?.cartVM.currentIndex.value,
-                  let count = cart[currentIndex]["count"] as? Int,
                   !cart.isEmpty else { return }
+            
+            guard let count = cart[currentIndex]["count"] as? Int else { return }
             
             self?.countView.countLabel.text = "\(count)"
         }
         
         cartVM.currentIndex.subscribe { [weak self] currentIndex in
             guard let cart = self?.cartVM.cart.value,
-                  let count = cart[currentIndex]["count"] as? Int,
                   !cart.isEmpty else { return }
+            
+            guard let count = cart[currentIndex]["count"] as? Int else { return }
+
             
             self?.countView.countLabel.text = "\(count)"
         }
