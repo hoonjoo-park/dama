@@ -8,9 +8,10 @@
 import UIKit
 
 class OrderResultVC: UIViewController {
+    let cartVM = CartViewModel.shared
     let boxImage = UIImageView(image: UIImage(named: "order-box"))
     let boldTextLabel = DamaLabel(fontSize: 18, weight: .bold, color: DamaColors.black)
-    let regularTextLabel = DamaLabel(fontSize: 14, weight: .medium, color: DamaColors.lightGray)
+    let regularTextLabel = DamaLabel(fontSize: 14, weight: .medium, color: DamaColors.gray)
     let bottomButton = DamaTextButton(frame: .zero)
 
     override func viewDidLoad() {
@@ -18,6 +19,7 @@ class OrderResultVC: UIViewController {
         
         configureBottomAction()
         configureUI()
+        handleData()
     }
     
     
@@ -40,6 +42,13 @@ class OrderResultVC: UIViewController {
     
     @objc func dismissViewController() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    
+    private func handleData() {
+        regularTextLabel.text = "총 주문 금액: \(transPrice(cartVM.totalPrice.value))원"
+        
+        cartVM.resetCart()
     }
     
     
@@ -69,7 +78,7 @@ class OrderResultVC: UIViewController {
             boldTextLabel.topAnchor.constraint(equalTo: boxImage.bottomAnchor, constant: 54),
             boldTextLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            regularTextLabel.topAnchor.constraint(equalTo: boldTextLabel.bottomAnchor, constant: 30),
+            regularTextLabel.topAnchor.constraint(equalTo: boldTextLabel.bottomAnchor, constant: 20),
             regularTextLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             bottomButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),

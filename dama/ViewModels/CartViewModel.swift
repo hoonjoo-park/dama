@@ -79,4 +79,12 @@ class CartViewModel {
         
         return currentPriceSum
     }
+    
+    
+    func resetCart() {
+        for i in 0..<cart.value.count { cart.value[i]["count"] = 0 }
+        
+        currentIndex.value = 1
+        totalPrice.value = 0
+    }
 }
