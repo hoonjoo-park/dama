@@ -7,11 +7,10 @@
 
 import UIKit
 
-class MenuVC: UIViewController {
+class MenuVC: OrderableViewController {
     let padding:CGFloat = 25
     
     var collectionView: UICollectionView!
-    let cartVM = CartViewModel.shared
     
     let totalCountLabel = DamaLabel(fontSize: 20, weight: UIFont.Weight.bold, color: DamaColors.black)
     let countView = CountView(frame: .zero)
@@ -68,18 +67,7 @@ class MenuVC: UIViewController {
     
     
     private func configureButtonsTarget() {
-        bottomButton.addTarget(self, action: #selector(onTappedBottomButton), for: .touchUpInside)
-    }
-    
-    
-    @objc func onTappedBottomButton() {
-        let alert = UIAlertController(title: "주문하시겠습니까?", message: "금액과 메뉴를 꼭 확인해 주세요.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "확인", style: .default)
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
-        
-        alert.addAction(okAction)
-        alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
+        bottomButton.addTarget(self, action: #selector(showConfirmOrder), for: .touchUpInside)
     }
     
     

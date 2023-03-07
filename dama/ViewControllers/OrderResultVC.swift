@@ -11,5 +11,7 @@ class OrderResultVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = DamaColors.orange
     }
+    
 }

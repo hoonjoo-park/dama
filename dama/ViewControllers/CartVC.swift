@@ -7,9 +7,7 @@
 
 import UIKit
 
-class CartVC: UIViewController {
-    let cartVM = CartViewModel.shared
-    
+class CartVC: OrderableViewController {
     let bottomButton = DamaTextButton(frame: .zero)
     let cartContainer = UIView(frame: .zero)
     let cartStackView = UIStackView()
@@ -70,6 +68,7 @@ class CartVC: UIViewController {
         let padding:CGFloat = 25
         
         bottomButton.backgroundColor = DamaColors.orange
+        bottomButton.addTarget(self, action: #selector(showConfirmOrder), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
             cartContainer.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
