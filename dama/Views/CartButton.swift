@@ -8,10 +8,14 @@
 import UIKit
 
 class CartButton: DamaIconButton {
+    let countBadge = DamaLabel(fontSize: 10, weight: .medium, color: DamaColors.black)
+    let borderView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame, image: UIImage(named: "menu")!)
         
+        configureBorderViewUI()
+        configureCountBadgeUI()
         configureUI()
         configureAction()
     }
@@ -22,9 +26,33 @@ class CartButton: DamaIconButton {
     }
     
     
+    private func configureBorderViewUI() {
+        borderView.frame = bounds
+        borderView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        borderView.layer.cornerRadius = 12
+        borderView.layer.borderWidth = 1
+        borderView.layer.borderColor = DamaColors.orange.cgColor
+    }
+    
+    
+    private func configureCountBadgeUI() {
+        countBadge.layer.cornerRadius = 10
+        countBadge.clipsToBounds = true
+        countBadge.backgroundColor = DamaColors.orange
+        countBadge.text = "1"
+        countBadge.textAlignment = .center
+    }
+    
+    
     private func configureUI() {
-        layer.borderWidth = 1
-        layer.borderColor = DamaColors.orange.cgColor
+        [borderView, countBadge].forEach { addSubview($0) }
+        
+        NSLayoutConstraint.activate([
+            countBadge.widthAnchor.constraint(equalToConstant: 20),
+            countBadge.heightAnchor.constraint(equalToConstant: 20),
+            countBadge.topAnchor.constraint(equalTo: topAnchor, constant: -5),
+            countBadge.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 5),
+        ])
     }
     
     
