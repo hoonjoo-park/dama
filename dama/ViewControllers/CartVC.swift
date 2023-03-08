@@ -71,7 +71,7 @@ class CartVC: OrderableViewController {
         bottomButton.addTarget(self, action: #selector(showConfirmOrder), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
-            cartContainer.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
+            cartContainer.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             cartContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             cartContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
             
@@ -109,7 +109,7 @@ class CartVC: OrderableViewController {
         cartStackView.axis = .vertical
         cartStackView.alignment = .fill
         cartStackView.distribution = .fillEqually
-        cartStackView.spacing = 40
+        cartStackView.spacing = 35
         
         NSLayoutConstraint.activate([            
             cartStackView.topAnchor.constraint(equalTo: cartContainer.topAnchor, constant: 35),
