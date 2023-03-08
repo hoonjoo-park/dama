@@ -36,10 +36,10 @@ class CartButton: DamaIconButton {
     
     
     private func configureCountBadgeUI() {
+        countBadge.alpha = 0
         countBadge.layer.cornerRadius = 10
         countBadge.clipsToBounds = true
         countBadge.backgroundColor = DamaColors.orange
-        countBadge.text = "1"
         countBadge.textAlignment = .center
     }
     

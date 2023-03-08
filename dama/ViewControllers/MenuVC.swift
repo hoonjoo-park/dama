@@ -125,6 +125,18 @@ class MenuVC: OrderableViewController {
             guard let count = cart[currentIndex]["count"] as? Int else { return }
             
             self?.countView.countLabel.text = "\(count)"
+            
+            let cartCount = cart.dropFirst().dropLast().filter { item in
+                guard let itemCount = item["count"] as? Int else { return false }
+                return itemCount > 0
+            }.count
+            
+            if cartCount == 0 {
+                self?.cartButton.countBadge.alpha = 0
+            } else {
+                self?.cartButton.countBadge.alpha = 1
+                self?.cartButton.countBadge.text = "\(cartCount)"
+            }
         }
         
         cartVM.currentIndex.subscribe { [weak self] currentIndex in
