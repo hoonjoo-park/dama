@@ -10,7 +10,7 @@ import Foundation
 struct MenuViewModel {
     var menu: Observable<Menu>
     
-    init(menu: Observable<Menu>) {
+    init(_ menu: Observable<Menu>) {
         self.menu = menu
     }
 }

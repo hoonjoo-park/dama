@@ -20,12 +20,12 @@ struct AllMenusViewModel {
     
     func configureCell(_ index: Int, _ cell: MenuCell) {
         let menu = menus.value[index]
-        let menuVM = MenuViewModel(menu: Observable(menu))
+        let menuVM = MenuViewModel(Observable(menu))
         
         menuVM.menu.subscribe {
+            cell.menuImage.downloadImage(url: $0.imageUrl)
             cell.menuTitle.text = $0.name
             cell.menuPrice.text = "\(transPrice($0.price))원"
-            cell.menuImage.downloadImage(url: $0.imageUrl)
         }
     }
 }

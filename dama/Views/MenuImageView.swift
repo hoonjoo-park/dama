@@ -23,6 +23,7 @@ class MenuImageView: UIImageView {
     
     
     private func configureImageView() {
+        contentMode = .scaleAspectFill
         image = defaultImage
         layer.cornerRadius = 12
         clipsToBounds = true
