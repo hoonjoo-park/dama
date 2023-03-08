@@ -27,6 +27,7 @@
 		CBCA49422998D26900867AD4 /* MenuCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA49412998D26900867AD4 /* MenuCollectionVC.swift */; };
 		CBCA49442998EF7200867AD4 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA49432998EF7200867AD4 /* MenuViewModel.swift */; };
 		CBCA49462998F2CA00867AD4 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA49452998F2CA00867AD4 /* MenuCell.swift */; };
+		CBD4339C29B8FF4200DF0A2D /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD4339B29B8FF4200DF0A2D /* GradientView.swift */; };
 		CBF396272998082900915229 /* OrderResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF396262998082900915229 /* OrderResultVC.swift */; };
 		CBF3962A299808FC00915229 /* DamaLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF39629299808FC00915229 /* DamaLabel.swift */; };
 		CBF3962F29980B1400915229 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF3962E29980B1400915229 /* Menu.swift */; };
@@ -59,6 +60,7 @@
 		CBCA49412998D26900867AD4 /* MenuCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionVC.swift; sourceTree = "<group>"; };
 		CBCA49432998EF7200867AD4 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		CBCA49452998F2CA00867AD4 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		CBD4339B29B8FF4200DF0A2D /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		CBF396262998082900915229 /* OrderResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderResultVC.swift; sourceTree = "<group>"; };
 		CBF39629299808FC00915229 /* DamaLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamaLabel.swift; sourceTree = "<group>"; };
 		CBF3962E29980B1400915229 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				CB5CA3952996CB9800487D47 /* Assets.xcassets */,
 				CB5CA3972996CB9800487D47 /* LaunchScreen.storyboard */,
 				CB5CA39A2996CB9800487D47 /* Info.plist */,
+				CBD4339B29B8FF4200DF0A2D /* GradientView.swift */,
 				CB5CA38C2996CB9600487D47 /* AppDelegate.swift */,
 				CB5CA38E2996CB9600487D47 /* SceneDelegate.swift */,
 			);
@@ -276,6 +279,7 @@
 				CB05964629AA48BA00D24F10 /* CartViewModel.swift in Sources */,
 				CBF396352998153100915229 /* Observable.swift in Sources */,
 				CBAE8A7E29A532D900E748CB /* CountView.swift in Sources */,
+				CBD4339C29B8FF4200DF0A2D /* GradientView.swift in Sources */,
 				CB5CA38D2996CB9600487D47 /* AppDelegate.swift in Sources */,
 				CBCA49402998D1A200867AD4 /* DamaIconButton.swift in Sources */,
 				CB6E846429B746C100FCE0C5 /* OrderableVC.swift in Sources */,
