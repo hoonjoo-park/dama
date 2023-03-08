@@ -24,7 +24,7 @@ struct AllMenusViewModel {
         
         menuVM.menu.subscribe {
             cell.menuTitle.text = $0.name
-            cell.menuPrice.text = String($0.price) + "원"
+            cell.menuPrice.text = "\(transPrice($0.price))원"
             cell.menuImage.downloadImage(url: $0.imageUrl)
         }
     }
