@@ -32,6 +32,7 @@ class CartButton: DamaIconButton {
         borderView.layer.cornerRadius = 12
         borderView.layer.borderWidth = 1
         borderView.layer.borderColor = DamaColors.orange.cgColor
+        borderView.isUserInteractionEnabled = false
     }
     
     
