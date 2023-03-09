@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol CartButtonDelegate: AnyObject {
+    func pushCartVC()
+}
+
 class CartButton: DamaIconButton {
+    weak var delegate: CartButtonDelegate?
+    
     let countBadge = DamaLabel(fontSize: 10, weight: .medium, color: DamaColors.black)
     let borderView = UIView()
     
@@ -63,14 +69,6 @@ class CartButton: DamaIconButton {
     
     
     @objc func onTappedMenuButton() {
-        let targetVC = CartVC()
-        
-        if let scene = UIApplication.shared.connectedScenes.first,
-           let sceneDelegate = scene.delegate as? SceneDelegate,
-           let window = sceneDelegate.window {
-            if let navigationController = window.rootViewController as? UINavigationController {
-                navigationController.pushViewController(targetVC, animated: true)
-            }
-        }
+        delegate?.pushCartVC()
     }
 }

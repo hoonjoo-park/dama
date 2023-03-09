@@ -63,6 +63,8 @@ class MenuVC: OrderableViewController {
         totalCountLabel.text = "담은 개수"
         countView.countLabel.text = "0"
         totalPriceLabel.text = "총 주문 금액"
+        
+        cartButton.delegate = self
     }
     
     
@@ -152,5 +154,12 @@ class MenuVC: OrderableViewController {
         cartVM.totalPrice.subscribe { [weak self] price in
             self?.totalPriceValue.text = "\(transPrice(price)) 원"
         }
+    }
+}
+
+extension MenuVC: CartButtonDelegate {
+    func pushCartVC() {
+        let targetVC = CartVC()
+        navigationController?.pushViewController(targetVC, animated: true)
     }
 }
