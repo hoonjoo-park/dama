@@ -66,13 +66,11 @@ class FakeLaunchScreenVC: UIViewController {
             self.view.layoutIfNeeded()
         }
         
-        UIView.animate(withDuration: 0.05, delay: 0.3, animations: {
-            self.subTitle.layer.opacity = 0
-            self.appTitle.layer.opacity = 0
-            self.view.backgroundColor = DamaColors.white
+        UIView.animate(withDuration: 0.1, delay: 0.7, animations: {
+            self.view.alpha = 0
         }, completion: { done in
             if done {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     self.presentRealRootViewController()
                 }
             }
