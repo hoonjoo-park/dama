@@ -17,10 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-        let rootVC = MenuVC()
-        let navVC = UINavigationController(rootViewController: rootVC)
+        let rootVC = FakeLaunchScreenVC()
         
-        window?.rootViewController = navVC
+        window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
     }
 
@@ -54,4 +53,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
-
