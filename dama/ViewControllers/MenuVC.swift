@@ -26,19 +26,16 @@ class MenuVC: OrderableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        DispatchQueue.main.async {
+            let initialContentOffsetX: CGFloat = UIScreen.main.bounds.width - 25
+            let fixedContentOffsetY = self.collectionView.contentOffset.y
+            
+            self.collectionView.setContentOffset(CGPoint(x: initialContentOffsetX * CGFloat(self.cartVM.currentIndex.value), y: fixedContentOffsetY), animated: false)
+        }
+        
         title = "무엇을 주문하시겠어요?"
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: DamaColors.black]
         configureSubscribe()
-    }
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        let initialContentOffsetX: CGFloat = UIScreen.main.bounds.width - 25
-        let fixedContentOffsetY = collectionView.contentOffset.y
-        
-        collectionView.setContentOffset(CGPoint(x: initialContentOffsetX * CGFloat(cartVM.currentIndex.value), y: fixedContentOffsetY), animated: false)
     }
     
     

@@ -79,5 +79,4 @@ class FakeLaunchScreenVC: UIViewController {
         navVC.modalPresentationStyle = .fullScreen
         present(navVC, animated: true)
     }
-    
 }
