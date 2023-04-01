@@ -12,18 +12,16 @@ class MenuVC: OrderableViewController {
     let cartButton = CartButton(frame: .zero)
     let bottomButton = DamaTextButton(frame: .zero)
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configureCollectionVC()
         configureSubViews()
         configureButtonsTarget()
         configureUI()
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -143,7 +141,6 @@ class MenuVC: OrderableViewController {
                   !cart.isEmpty else { return }
             
             guard let count = cart[currentIndex]["count"] as? Int else { return }
-
             
             self?.countView.countLabel.text = "\(count)"
         }
@@ -153,6 +150,7 @@ class MenuVC: OrderableViewController {
         }
     }
 }
+
 
 extension MenuVC: CartButtonDelegate {
     func pushCartVC() {
