@@ -1,10 +1,3 @@
-//
-//  MenuCollectionVC.swift
-//  dama
-//
-//  Created by Hoonjoo Park on 2023/02/12.
-//
-
 import UIKit
 
 private let reuseID = "MenuCell"
@@ -21,6 +14,7 @@ class MenuCollectionVC: UICollectionViewController {
     
     override init(collectionViewLayout layout: UICollectionViewLayout) {
         super.init(collectionViewLayout: layout)
+
         fetchMenus()
     }
     
@@ -39,6 +33,7 @@ class MenuCollectionVC: UICollectionViewController {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
         
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: configureFlowLayout())
+        collectionView.backgroundColor = DamaColors.white
         collectionView.addGestureRecognizer(panGesture)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isScrollEnabled = false

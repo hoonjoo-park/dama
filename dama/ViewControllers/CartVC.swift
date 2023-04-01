@@ -1,10 +1,3 @@
-//
-//  CartVC.swift
-//  dama
-//
-//  Created by Hoonjoo Park on 2023/02/20.
-//
-
 import UIKit
 
 class CartVC: OrderableViewController {

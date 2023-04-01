@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  dama
-//
-//  Created by Hoonjoo Park on 2023/02/11.
-//
-
 import UIKit
 
 class MenuVC: OrderableViewController {
@@ -21,18 +14,22 @@ class MenuVC: OrderableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         configureCollectionVC()
         configureSubViews()
         configureButtonsTarget()
         configureUI()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         title = "무엇을 주문하시겠어요?"
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: DamaColors.black]
         configureSubscribe()
     }
     

@@ -47,5 +47,4 @@ class OrderableViewController: UIViewController {
         confirm.addAction(confirmAction)
         present(confirm, animated: true, completion: nil)
     }
-
 }

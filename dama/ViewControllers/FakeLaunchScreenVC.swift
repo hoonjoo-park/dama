@@ -1,10 +1,3 @@
-//
-//  FakeLaunchScreenVC.swift
-//  dama
-//
-//  Created by Hoonjoo Park on 2023/03/09.
-//
-
 import UIKit
 
 class FakeLaunchScreenVC: UIViewController {
